@@ -1,30 +1,30 @@
 var express = require('express');
 var router = express.Router();
-var CityController = require('../controllers/CityController.js');
+var cityController = require('../controllers/cityController.js');
 
 /*
  * GET
  */
-router.get('/', CityController.list);
+router.get('/', cityController.list);
 
 /*
  * GET
  */
-router.get('/:id', CityController.show);
+router.get('/:id', cityController.show);
 
 /*
  * POST
  */
-router.post('/', CityController.create);
+router.post('/', cityController.create);
 
 /*
  * PUT
  */
-router.put('/:id', CityController.update);
+router.put('/:id', cityController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', CityController.remove);
+router.delete('/:id', cityController.remove);
 
 module.exports = router;
