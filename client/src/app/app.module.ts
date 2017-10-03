@@ -11,6 +11,9 @@ import { CityComponent } from './city/city.component';
 import { MenuComponent } from './menu/menu.component';
 import { PlaceDetailsComponent } from './place-details/place-details.component';
 import { CityListComponent } from './city-list/city-list.component';
+import { RouterModule } from '@angular/router';
+import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
+import {routes} from './routes';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { CityListComponent } from './city-list/city-list.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthService, IsLoggedInService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
