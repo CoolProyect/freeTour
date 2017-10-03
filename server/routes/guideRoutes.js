@@ -1,30 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var GuideController = require('../controllers/GuideController.js');
+const router = require('express').Router()
+const guideController = require('../controllers/guideController')
+const checkIDParam = require('../middlewares/checkIfExists')
 
-/*
- * GET
- */
-router.get('/', GuideController.list);
+router.get('/', guideController.list)
+router.get('/:id', checkIDParam, guideController.show)
+router.post('/', guideController.create)
+router.put('/:id', checkIDParam, guideController.update)
+router.delete('/:id', checkIDParam,guideController.remove)
 
-/*
- * GET
- */
-router.get('/:id', GuideController.show);
-
-/*
- * POST
- */
-router.post('/', GuideController.create);
-
-/*
- * PUT
- */
-router.put('/:id', GuideController.update);
-
-/*
- * DELETE
- */
-router.delete('/:id', GuideController.remove);
-
-module.exports = router;
+module.exports = router

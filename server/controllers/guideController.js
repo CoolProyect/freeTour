@@ -1,116 +1,56 @@
-var guideModel = require('../models/guideModel.js');
+const guideModel = require('../models/GuideModel');
 
-/**
- * guideController.js
- *
- * @description :: Server-side logic for managing guides.
- */
+
+
 module.exports = {
 
-    /**
-     * guideController.list()
-     */
-    list: function (req, res) {
-        guideModel.find(function (err, guides) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting guide.',
-                    error: err
-                });
-            }
-            return res.json(guides);
-        });
-    },
+  list: (req, res, next) => {
+    guideModel.find({})
+      .then(g => res.status(200).json(g))
+      .catch(e => res.status(500).json({error: e.message}));
+  },
 
-    /**
-     * guideController.show()
-     */
-    show: function (req, res) {
-        var id = req.params.id;
-        guideModel.findOne({_id: id}, function (err, guide) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting guide.',
-                    error: err
-                });
-            }
-            if (!guide) {
-                return res.status(404).json({
-                    message: 'No such guide'
-                });
-            }
-            return res.json(guide);
-        });
-    },
+  show: (req, res, next) => {
+    const id = req.params.id;
+    guideModel.findById(req.params.id)
+      .then(g => res.status(200).json(g))
+      .catch(e => res.status(500).json({error: e.message}));
+  },
 
-    /**
-     * guideController.create()
-     */
-    create: function (req, res) {
-        var guide = new guideModel({
-			auth : req.body.auth,
-			pointOfInterest : req.body.pointOfInterest
+  create: function(req, res, next) {
+    const guide = new guideModel({
+      auth: req.body.auth,
+      pointOfInterest: req.body.pointOfInterest
+    });
 
-        });
+    guide.save()
+      .then(p => res.status(200).json({
+        message: 'New Guide created!',
+        guide: g
+      }))
+      .catch(e => res.status(500).json({error: e.message}));
+  },
 
-        guide.save(function (err, guide) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating guide',
-                    error: err
-                });
-            }
-            return res.status(201).json(guide);
-        });
-    },
+  update: (req, res, next) => {
+    const {
+      auth,
+      pointOfInterest
+    } = req.body;
+    const updates = {
+      auth,
+      pointOfInterest
+    };
 
-    /**
-     * guideController.update()
-     */
-    update: function (req, res) {
-        var id = req.params.id;
-        guideModel.findOne({_id: id}, function (err, guide) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting guide',
-                    error: err
-                });
-            }
-            if (!guide) {
-                return res.status(404).json({
-                    message: 'No such guide'
-                });
-            }
+    guideModel.findByIdAndUpdate(req.params.id, updates, {
+        new: true
+      })
+      .then(g => res.status(200).json(g))
+      .catch(e => res.status(500).json({error: e.message}));
+  },
 
-            guide.auth = req.body.auth ? req.body.auth : guide.auth;
-			guide.pointOfInterest = req.body.pointOfInterest ? req.body.pointOfInterest : guide.pointOfInterest;
-			
-            guide.save(function (err, guide) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Error when updating guide.',
-                        error: err
-                    });
-                }
-
-                return res.json(guide);
-            });
-        });
-    },
-
-    /**
-     * guideController.remove()
-     */
-    remove: function (req, res) {
-        var id = req.params.id;
-        guideModel.findByIdAndRemove(id, function (err, guide) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when deleting the guide.',
-                    error: err
-                });
-            }
-            return res.status(204).json();
-        });
-    }
+  remove: (req, res, next) => {
+    guideModel.findByIdAndRemove(req.params.id)
+      .then(g => res.status(200).json(g))
+      .catch(e => res.status(500).json({error: e.message}));
+  }
 };
