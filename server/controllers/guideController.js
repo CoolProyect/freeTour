@@ -1,4 +1,4 @@
-var guideModel = require('../models/guideModel.js');
+const guideModel = require('../models/GuideModel');
 
 /**
  * guideController.js
@@ -26,7 +26,7 @@ module.exports = {
      * guideController.show()
      */
     show: function (req, res) {
-        var id = req.params.id;
+        const id = req.params.id;
         guideModel.findOne({_id: id}, function (err, guide) {
             if (err) {
                 return res.status(500).json({
@@ -47,7 +47,7 @@ module.exports = {
      * guideController.create()
      */
     create: function (req, res) {
-        var guide = new guideModel({
+        const guide = new guideModel({
 			auth : req.body.auth,
 			pointOfInterest : req.body.pointOfInterest
 
@@ -68,7 +68,7 @@ module.exports = {
      * guideController.update()
      */
     update: function (req, res) {
-        var id = req.params.id;
+        const id = req.params.id;
         guideModel.findOne({_id: id}, function (err, guide) {
             if (err) {
                 return res.status(500).json({
@@ -84,7 +84,7 @@ module.exports = {
 
             guide.auth = req.body.auth ? req.body.auth : guide.auth;
 			guide.pointOfInterest = req.body.pointOfInterest ? req.body.pointOfInterest : guide.pointOfInterest;
-			
+
             guide.save(function (err, guide) {
                 if (err) {
                     return res.status(500).json({
@@ -102,7 +102,7 @@ module.exports = {
      * guideController.remove()
      */
     remove: function (req, res) {
-        var id = req.params.id;
+        const id = req.params.id;
         guideModel.findByIdAndRemove(id, function (err, guide) {
             if (err) {
                 return res.status(500).json({

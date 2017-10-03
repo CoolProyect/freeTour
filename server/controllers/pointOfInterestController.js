@@ -1,122 +1,51 @@
-var pointOfInterestModel = require('../models/pointOfInterestModel.js');
+const pointOfInterestModel = require('../models/PointOfInterestModel.js');
 
-/**
- * pointOfInterestController.js
- *
- * @description :: Server-side logic for managing pointOfInterests.
- */
 module.exports = {
 
-    /**
-     * pointOfInterestController.list()
-     */
-    list: function (req, res) {
-        pointOfInterestModel.find(function (err, pointOfInterests) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting pointOfInterest.',
-                    error: err
-                });
-            }
-            return res.json(pointOfInterests);
-        });
+  list: (req, res, next) => {
+    pointOfInterestModel.find({})
+      .then(pointOfInterest => res.status(200).json(pointOfInterest))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
+  },
+
+  show: (req, res, next) => {
+    const id = req.params.id;
+    pointOfInterestModel.findById(req.params.id)
+      .then(point => res.status(200).json(point))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
+  },
+
+  create: (req, res, next) => {
+    const pointOfInterest = new pointOfInterestModel({
+      lat: req.body.lat,
+      lng: req.body.lng,
+      description: req.body.description,
+      photo: req.body.photo,
+      city: req.body.city
+    });
+
+    pointOfInterest.save()
+      .then(point => res.status(200).json({message: 'New point of interest created!', pointI: point}))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
     },
 
-    /**
-     * pointOfInterestController.show()
-     */
-    show: function (req, res) {
-        var id = req.params.id;
-        pointOfInterestModel.findOne({_id: id}, function (err, pointOfInterest) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting pointOfInterest.',
-                    error: err
-                });
-            }
-            if (!pointOfInterest) {
-                return res.status(404).json({
-                    message: 'No such pointOfInterest'
-                });
-            }
-            return res.json(pointOfInterest);
-        });
-    },
+    update: (req, res, next) => {
+      const {lat, lng, description, photo, city} = req.body;
+      const updates ={lat, lng, description, photo, city}
+    pointOfInterestModel.findByIdAndUpdate(req.params.id, updates, {new:true})
+      .then(point => res.status(200).json(point))
+      .catch(e => res.status(500).json({error:e.message}))
+  },
 
-    /**
-     * pointOfInterestController.create()
-     */
-    create: function (req, res) {
-        var pointOfInterest = new pointOfInterestModel({
-			lng : req.body.lng,
-			lt : req.body.lt,
-			description : req.body.description,
-			photo : req.body.photo,
-			city : req.body.city
-
-        });
-
-        pointOfInterest.save(function (err, pointOfInterest) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating pointOfInterest',
-                    error: err
-                });
-            }
-            return res.status(201).json(pointOfInterest);
-        });
-    },
-
-    /**
-     * pointOfInterestController.update()
-     */
-    update: function (req, res) {
-        var id = req.params.id;
-        pointOfInterestModel.findOne({_id: id}, function (err, pointOfInterest) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting pointOfInterest',
-                    error: err
-                });
-            }
-            if (!pointOfInterest) {
-                return res.status(404).json({
-                    message: 'No such pointOfInterest'
-                });
-            }
-
-            pointOfInterest.lng = req.body.lng ? req.body.lng : pointOfInterest.lng;
-			pointOfInterest.lt = req.body.lt ? req.body.lt : pointOfInterest.lt;
-			pointOfInterest.description = req.body.description ? req.body.description : pointOfInterest.description;
-			pointOfInterest.photo = req.body.photo ? req.body.photo : pointOfInterest.photo;
-			pointOfInterest.city = req.body.city ? req.body.city : pointOfInterest.city;
-			
-            pointOfInterest.save(function (err, pointOfInterest) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Error when updating pointOfInterest.',
-                        error: err
-                    });
-                }
-
-                return res.json(pointOfInterest);
-            });
-        });
-    },
-
-    /**
-     * pointOfInterestController.remove()
-     */
-    remove: function (req, res) {
-        var id = req.params.id;
-        pointOfInterestModel.findByIdAndRemove(id, function (err, pointOfInterest) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when deleting the pointOfInterest.',
-                    error: err
-                });
-            }
-            return res.status(204).json();
-        });
-    }
+  remove: (req, res,next) => {
+    pointOfInterestModel.findByIdAndRemove(req.params.id)
+      .then(point => res.status(200).json(point))
+      .catch(e => res.status(500).json({error:e.message}))
+  }
 };

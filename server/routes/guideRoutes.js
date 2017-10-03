@@ -1,30 +1,30 @@
-var express = require('express');
-var router = express.Router();
-var GuideController = require('../controllers/GuideController.js');
+const express = require('express');
+const router = express.Router();
+const guideController = require('../controllers/GuideController.js');
 
 /*
  * GET
  */
-router.get('/', GuideController.list);
+router.get('/', guideController.list);
 
 /*
  * GET
  */
-router.get('/:id', GuideController.show);
+router.get('/:id', guideController.show);
 
 /*
  * POST
  */
-router.post('/', GuideController.create);
+router.post('/', guideController.create);
 
 /*
  * PUT
  */
-router.put('/:id', GuideController.update);
+router.put('/:id', guideController.update);
 
 /*
  * DELETE
  */
-router.delete('/:id', GuideController.remove);
+router.delete('/:id', guideController.remove);
 
 module.exports = router;

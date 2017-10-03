@@ -1,10 +1,10 @@
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
 
-var CitySchema = new Schema({
+const CitySchema = new Schema({
 	'name' : String,
 	'photo' : String,
-	'pointOfInterest' : String,
+	'pointOfInterest' : { type: Schema.Types.ObjectId, ref: 'PointOfInterest' },
 	'description' : String
 });
 

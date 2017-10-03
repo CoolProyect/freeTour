@@ -1,120 +1,51 @@
-var CityModel = require('../models/CityModel.js');
+const cityModel = require('../models/CityModel.js');
 
-/**
- * CityController.js
- *
- * @description :: Server-side logic for managing Citys.
- */
+
 module.exports = {
 
-    /**
-     * CityController.list()
-     */
-    list: function (req, res) {
-        CityModel.find(function (err, Citys) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting City.',
-                    error: err
-                });
-            }
-            return res.json(Citys);
-        });
+
+  list: (req, res, next) => {
+    cityModel.find({})
+      .then(city => res.status(200).json(city))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
+  },
+
+  show: (req, res, next) => {
+    cityModel.findById(req.params.id)
+      .then(city => res.status(200).json(city))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
+  },
+
+  create: (req, res, next) => {
+    const City = new cityModel({
+      name: req.body.name,
+      photo: req.body.photo,
+      pointOfInterest: req.body.pointOfInterest,
+      description: req.body.description
+
+    });
+
+    City.save()
+      .then( c => res.status(200).json({message: 'New city created!',city: c}))
+      .catch( e => res.status(500).json({
+        error: e.message
+      }))
+  },
+
+  update: (req, res, next) => {
+    const {name, photo, pointOfInterest, description} = req.body
+    cityModel.findByIdAndUpdate(req.params.id)
+      .then(city => res.status(200).json(city))
+      .catch(e => res.status(500).json({error:e.message}))
     },
 
-    /**
-     * CityController.show()
-     */
-    show: function (req, res) {
-        var id = req.params.id;
-        CityModel.findOne({_id: id}, function (err, City) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting City.',
-                    error: err
-                });
-            }
-            if (!City) {
-                return res.status(404).json({
-                    message: 'No such City'
-                });
-            }
-            return res.json(City);
-        });
-    },
-
-    /**
-     * CityController.create()
-     */
-    create: function (req, res) {
-        var City = new CityModel({
-			name : req.body.name,
-			photo : req.body.photo,
-			pointOfInterest : req.body.pointOfInterest,
-			description : req.body.description
-
-        });
-
-        City.save(function (err, City) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when creating City',
-                    error: err
-                });
-            }
-            return res.status(201).json(City);
-        });
-    },
-
-    /**
-     * CityController.update()
-     */
-    update: function (req, res) {
-        var id = req.params.id;
-        CityModel.findOne({_id: id}, function (err, City) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting City',
-                    error: err
-                });
-            }
-            if (!City) {
-                return res.status(404).json({
-                    message: 'No such City'
-                });
-            }
-
-            City.name = req.body.name ? req.body.name : City.name;
-			City.photo = req.body.photo ? req.body.photo : City.photo;
-			City.pointOfInterest = req.body.pointOfInterest ? req.body.pointOfInterest : City.pointOfInterest;
-			City.description = req.body.description ? req.body.description : City.description;
-			
-            City.save(function (err, City) {
-                if (err) {
-                    return res.status(500).json({
-                        message: 'Error when updating City.',
-                        error: err
-                    });
-                }
-
-                return res.json(City);
-            });
-        });
-    },
-
-    /**
-     * CityController.remove()
-     */
-    remove: function (req, res) {
-        var id = req.params.id;
-        CityModel.findByIdAndRemove(id, function (err, City) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when deleting the City.',
-                    error: err
-                });
-            }
-            return res.status(204).json();
-        });
-    }
+    remove: (req, res, next) => {
+    cityModel.findByIdAndRemove(req.params.id)
+      .then(city => res.status(200).json(city))
+      .catch(e => res.status(500).json({error:e.message}))
+  }
 };

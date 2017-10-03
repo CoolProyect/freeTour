@@ -1,30 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var CityController = require('../controllers/CityController.js');
+var CityController = require('../controllers/CityController');
+const checkIDParam = require('../middlewares/checkIfExists')
 
-/*
- * GET
- */
-router.get('/', CityController.list);
 
-/*
- * GET
- */
-router.get('/:id', CityController.show);
-
-/*
- * POST
- */
-router.post('/', CityController.create);
-
-/*
- * PUT
- */
-router.put('/:id', CityController.update);
-
-/*
- * DELETE
- */
-router.delete('/:id', CityController.remove);
+router.get('/city', CityController.list);
+router.get('/city/:id',checkIDParam, CityController.show);
+router.post('/city/new', CityController.create);
+router.put('/city/:id/edit',checkIDParam, CityController.update);
+router.delete('/city/:id/delete', checkIDParam,CityController.remove);
 
 module.exports = router;

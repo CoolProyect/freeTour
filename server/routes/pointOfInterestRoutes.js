@@ -1,30 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var PointOfInterestController = require('../controllers/PointOfInterestController.js');
-
-/*
- * GET
- */
+const express = require('express');
+const router = express.Router();
+const PointOfInterestController = require('../controllers/pointOfInterestController');
+const checkIDParam = require('../middelwares/checkIfExists')
 router.get('/', PointOfInterestController.list);
-
-/*
- * GET
- */
-router.get('/:id', PointOfInterestController.show);
-
-/*
- * POST
- */
+router.get('/:id',checkIDParam, PointOfInterestController.show);
 router.post('/', PointOfInterestController.create);
-
-/*
- * PUT
- */
-router.put('/:id', PointOfInterestController.update);
-
-/*
- * DELETE
- */
-router.delete('/:id', PointOfInterestController.remove);
+router.put('/:id',checkIDParam, PointOfInterestController.update);
+router.delete('/:id', checkIDParam, PointOfInterestController.remove);
 
 module.exports = router;

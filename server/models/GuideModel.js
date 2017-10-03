@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema   = mongoose.Schema;
 
-var guideSchema = new Schema({
-	'auth' : String,
-	'pointOfInterest' : String
+const guideSchema = new Schema({
+	'auth' : { type: Schema.Types.ObjectId, ref: 'User' },
+	'pointOfInterest' : { type: Schema.Types.ObjectId, ref: 'PointOfInterest' }
 });
 
 module.exports = mongoose.model('Guide', guideSchema);
