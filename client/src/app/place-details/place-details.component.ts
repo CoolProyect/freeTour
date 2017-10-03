@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import {GuideService} from '../services/guide.service'
+import {Observable} from 'rxjs/Observable'
 
 @Component({
   selector: 'app-place-details',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaceDetailsComponent implements OnInit {
 
-  constructor() { }
+  guides;
+  constructor(public guideService:GuideService) { }
 
   ngOnInit() {
+    this.guideService.getList().subscribe(result => this.guides = result)
   }
 
 }

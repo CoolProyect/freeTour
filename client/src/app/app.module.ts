@@ -14,6 +14,7 @@ import { CityListComponent } from './city-list/city-list.component';
 import { RouterModule } from '@angular/router';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import {routes} from './routes';
+import {GuideService} from './services/guide.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {routes} from './routes';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService],
+  providers: [AuthService, IsLoggedInService, GuideService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
