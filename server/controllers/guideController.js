@@ -17,7 +17,8 @@ module.exports = {
       .catch(e => res.status(500).json({error: e.message}));
   },
 
-  create: function(req, res, next) {
+  create: (req, res, next)=>{ //duda crear listas por los usuarios
+    const {auth,pointOfInterest} = req.body;
     const guide = new guideModel({
       auth: req.body.auth,
       pointOfInterest: req.body.pointOfInterest
