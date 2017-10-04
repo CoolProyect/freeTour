@@ -1,7 +1,7 @@
 <form *ngIf="!user" >
   <h2> Login or Signup </h2>
   <label> Image </label>
-  <input type="text" [(ngModel)]="formInfo.image" name="image"/>
+  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
   <br>
   <label> Username </label>
   <input type="text" [(ngModel)]="formInfo.username" name="username"/>
@@ -14,3 +14,6 @@
   <button (click)="login()"> login </button>
   <button (click)="signup()"> signup </button>
 </form>
+
+
+<!-- <button (click)="submit()"> submit </button> -->
