@@ -9,9 +9,11 @@ import {ActivatedRoute, Router} from '@angular/router'
 })
 export class CityComponent implements OnInit {
 
-  constructor() { }
+  points:object;
+  constructor(public pointInterest:PointInterestService ) { }
 
   ngOnInit() {
+    this.pointInterest.getList().subscribe(result => this.points = result)
   }
 
 }

@@ -9,6 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'Viaja Conmigo';
   user: any;
+  
   constructor(public auth:AuthService) {
     this.auth.getLoginEventEmitter()
         .subscribe( user => this.user=user );
