@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import {AuthService} from '../services/auth.service'
-import { FileSelectDirective } from "ng2-file-upload"
+
 
 interface LoginForm{
   username:string;
@@ -13,26 +13,17 @@ interface LoginForm{
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent implements OnInit {
- //  // uploader: FileUploader = new FileUploader({
- //   url: `/user/`
- // })
 
   formInfo:LoginForm = {
     username: "",
     password: "",
+    
   };
 
-  feedback: string;
-  constructor(public auth:AuthService) { }
+  constructor(public auth:AuthService) {}
 
   ngOnInit() {
-    // this.uploader.onSuccessItem = (item, response) => {
-    //  this.feedback = JSON.parse(response).message;
-  //  }
-   //
-  //  this.uploader.onErrorItem = (item, response, status, headers) => {
-  //    this.feedback = JSON.parse(response).message;
-  //  }
+
   }
 
   login(){
@@ -45,7 +36,19 @@ export class LoginformComponent implements OnInit {
     } else{
       console.log("You must set a username and a password");
     }
-    // this.uploader.uploadAll()
+
+  }
+
+  signup(){
+    const {username, password} = this.formInfo;
+    if(username != "" && password != ""){
+      console.log(`Signup with ${username} ${password}`)
+      this.auth.signup(username, password)
+      .map(user => console.log(user))
+      .subscribe();
+    } else{
+      console.log("You must set a username and a password");
+    }
   }
 
 }

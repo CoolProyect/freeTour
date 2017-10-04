@@ -11,11 +11,8 @@ var authRoutes = express.Router()
 
 /* GET home page. */
 authRoutes.post('/signup', (req, res, next) => {
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-    image: `/uploads/${req.file.filename}`
-  })
+  const {username, password} = req.body;
+
 
   if (!username || !password)
     return res.status(400).json({ message: 'Provide username and password' })
@@ -32,8 +29,9 @@ authRoutes.post('/signup', (req, res, next) => {
     const theUser = new User({
       username,
       password: hashPass,
-      image
+
     })
+    console.log("Esto vale User" + theUser)
     return theUser.save()
     .then(user =>{
       req.login(user, (err) => {
