@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import {GuideService} from '../services/guide.service'
-import {ActivatedRoute, Router} from '@angular/router'
-import {Observable} from 'rxjs/Observable'
+import { PointInterestService } from '../services/point-interest.service'
+import { ActivatedRoute, Router } from '@angular/router'
+import { Observable } from 'rxjs/Observable'
 
 @Component({
   selector: 'app-place-details',
@@ -12,26 +12,27 @@ export class PlaceDetailsComponent implements OnInit {
 
   place;
   constructor(
-    private router:Router,
-    private route:ActivatedRoute,
-    private guideService: GuideService) {}
+    private router: Router,
+    private route: ActivatedRoute,
+    private pointInterestService: PointInterestService) { }
 
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-          this.getGuideDetails(params['id'])
-        });  }
+      this.getPointDetails(params['id'])
+    });
+  }
 
 
-        getGuideDetails(id) {
-    this.guideService.get(id)
+  getPointDetails(id) {
+    this.pointInterestService.get(id)
       .subscribe((place) => {
         this.place = place
       });
   }
-  deleteGuide() {
+  deletePoint() {
     if (window.confirm('Are you sure?')) {
-      this.guideService.remove(this.place._id)
+      this.pointInterestService.remove(this.place._id)
         .subscribe(() => {
           this.router.navigate([''])
         });

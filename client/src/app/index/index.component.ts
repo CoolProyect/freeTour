@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import {GuideService} from '../services/guide.service'
 
 @Component({
   selector: 'app-index',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  guides;
+  constructor(public guideService: GuideService) { }
 
   ngOnInit() {
+    this.guideService.getList().subscribe(result => this.guides = result)
   }
 
 }

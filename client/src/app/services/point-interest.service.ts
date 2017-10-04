@@ -10,22 +10,22 @@ export class PointInterestService {
   constructor(private http: Http) { }
 
   getList() {
-    return this.http.get(`${this.BASE_URL}/routes/pointInterest`)
+    return this.http.get(`${this.BASE_URL}/pointInterest`)
       .map((res) => res.json());
   }
 
   get(id) {
-    return this.http.get(`${this.BASE_URL}/routes/pointInterest/${id}`)
+    return this.http.get(`${this.BASE_URL}/pointInterest/${id}`)
       .map((res) => res.json());
   }
 
   edit(pointInterest) {
-    return this.http.put(`${this.BASE_URL}/routes/pointInterest/${pointInterest.id}`, pointInterest)
+    return this.http.put(`${this.BASE_URL}/pointInterest/${pointInterest.id}`, pointInterest)
       .map((res) => res.json());
   }
 
   remove(id) {
-    return this.http.delete(`${this.BASE_URL}/routes/pointInterest/${id}`)
+    return this.http.delete(`${this.BASE_URL}/pointInterest/${id}`)
       .map((res) => res.json());
   }
 
