@@ -10,7 +10,7 @@ import {Observable} from 'rxjs/Observable'
 })
 export class PlaceDetailsComponent implements OnInit {
 
-  guide;
+  place;
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -25,13 +25,13 @@ export class PlaceDetailsComponent implements OnInit {
 
         getGuideDetails(id) {
     this.guideService.get(id)
-      .subscribe((guide) => {
-        this.guide = guide
+      .subscribe((place) => {
+        this.place = place
       });
   }
   deleteGuide() {
     if (window.confirm('Are you sure?')) {
-      this.guideService.remove(this.guide._id)
+      this.guideService.remove(this.place._id)
         .subscribe(() => {
           this.router.navigate([''])
         });

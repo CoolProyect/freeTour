@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {GuideService} from '../services/guide.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-city-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CityListComponent implements OnInit {
 
-  constructor() { }
+  guides;
+  constructor(public guideService: GuideService) { }
 
   ngOnInit() {
+    this.guideService.getList().subscribe(result => this.guides = result)
   }
+
 
 }
