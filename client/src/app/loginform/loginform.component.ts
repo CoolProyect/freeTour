@@ -17,7 +17,7 @@ export class LoginformComponent implements OnInit {
   formInfo:LoginForm = {
     username: "",
     password: "",
-    
+
   };
 
   constructor(public auth:AuthService) {}

@@ -2,7 +2,11 @@
   place-details!
 </p>
 
-<!-- <% if (user._id.toString() == .aut.toString() ){ %>
-  <a href="/guides/<%= guide._id %>/edit/">Editar</a>
-  <a href="/guides/<%= guide._id %>/delete/">Eliminar</a>
-  <% } %> -->
+<a [routerLink]="['']"> Home </a> <br>
+<a [routerLink]="['/city/:id']">City</a>
+
+
+<div *ngIf= "user">
+  <a href="/guides/:id/edit/">Editar</a>
+  <a href="/guides/:id /delete/">Eliminar</a>
+</div>
