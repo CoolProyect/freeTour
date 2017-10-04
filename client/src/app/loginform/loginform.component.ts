@@ -13,9 +13,9 @@ interface LoginForm{
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent implements OnInit {
-  uploader: FileUploader = new FileUploader({
-   url: `/user/`
- })
+ //  // uploader: FileUploader = new FileUploader({
+ //   url: `/user/`
+ // })
 
   formInfo:LoginForm = {
     username: "",
@@ -26,13 +26,13 @@ export class LoginformComponent implements OnInit {
   constructor(public auth:AuthService) { }
 
   ngOnInit() {
-    this.uploader.onSuccessItem = (item, response) => {
-     this.feedback = JSON.parse(response).message;
-   }
-
-   this.uploader.onErrorItem = (item, response, status, headers) => {
-     this.feedback = JSON.parse(response).message;
-   }
+    // this.uploader.onSuccessItem = (item, response) => {
+    //  this.feedback = JSON.parse(response).message;
+  //  }
+   //
+  //  this.uploader.onErrorItem = (item, response, status, headers) => {
+  //    this.feedback = JSON.parse(response).message;
+  //  }
   }
 
   login(){
@@ -45,7 +45,7 @@ export class LoginformComponent implements OnInit {
     } else{
       console.log("You must set a username and a password");
     }
-    this.uploader.uploadAll()
+    // this.uploader.uploadAll()
   }
 
 }
