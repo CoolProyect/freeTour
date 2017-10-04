@@ -9,7 +9,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class CityListComponent implements OnInit {
 
-  guides;
+  guides:object;
   constructor(public guideService: GuideService) { }
 
   ngOnInit() {
