@@ -1,9 +1,9 @@
 <p>
   map works!
 </p>
-<h1>{{ title }}</h1>
-<li>{{descriptionPoints | json}}</li>
-
+<div *ngFor= "let a of descriptionPoints">
+<li>{{a | json}}</li><button> Añadir</button>
+</div>
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
