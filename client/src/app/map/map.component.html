@@ -2,7 +2,7 @@
   map works!
 </p>
 <h1>{{ title }}</h1>
-
+<li>{{listPoint | json}}</li>
 
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
