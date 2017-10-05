@@ -10,18 +10,11 @@ URL: string = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=
 
  constructor(private http: Http) { }
 
- descriptionPoints: Array<any> = [];
+
 
  getPoint(){
    return this.http.get(`${this.URL}`)
      .map((res) => res.json());
  }
 
- getPointList(points){
-
-  for(let i= 0; i < points.results; i++){
-      this.descriptionPoints.push(points.results[i].name)
-  }
-      return this.descriptionPoints
- }
 }
