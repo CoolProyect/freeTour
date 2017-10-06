@@ -14,7 +14,7 @@ export class BuscadorService {
   constructor(private http: Http) { }
 
   getPoint(city) {
-    return this.http.get(`${this.BASE_URL}/pointInterest/${city}`, city)
+    return this.http.get(`${this.BASE_URL}/point-interest/gmaps/${city}`, city)
       .map((res) => res.json());
   }
 
