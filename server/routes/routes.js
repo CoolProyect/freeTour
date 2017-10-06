@@ -17,14 +17,13 @@ router.post('/city/new', cityController.create)
 router.put('/city/:id/edit',checkIDParam, cityController.update)
 router.delete('/city/:id/delete', checkIDParam,cityController.remove)
 
-router.get('/pointInterest', pointOfInterestController.list)
-router.get('/pointInterest/:id',checkIDParam, pointOfInterestController.show)
-router.post('/pointInterest/new', pointOfInterestController.create)
-router.put('/pointInterest/:id/edit',checkIDParam, pointOfInterestController.update)
-router.delete('/pointInterest/:id/delete', checkIDParam, pointOfInterestController.remove)
+router.get('/point-interest', pointOfInterestController.list)
+router.get('/point-interest/gmaps', pointOfInterestController.point)
+router.post('/point-interest/new', pointOfInterestController.create)
 
-router.get('/', pointOfInterestController.point)
-router.get('/pointInterest/:city', pointOfInterestController.point)
+router.get('/point-interest/:id',checkIDParam, pointOfInterestController.show)
+router.put('/point-interest/:id/edit',checkIDParam, pointOfInterestController.update)
+router.delete('/point-interest/:id/delete', checkIDParam, pointOfInterestController.remove)
 
 
 module.exports = router
