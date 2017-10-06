@@ -28,7 +28,8 @@ import { MapService } from './services/map.service'
 import { FileSelectDirective } from "ng2-file-upload"
 
 import {routes} from './routes';
-import { FilterPipe } from './pipes/filter.pipe'
+import { FilterPipe } from './pipes/filter.pipe';
+import { BuscadorComponent } from './buscador/buscador.component'
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { FilterPipe } from './pipes/filter.pipe'
     CityListComponent,
     FileSelectDirective,
     MapComponent,
-    FilterPipe
+    FilterPipe,
+    BuscadorComponent
   ],
   imports: [
     BrowserModule,

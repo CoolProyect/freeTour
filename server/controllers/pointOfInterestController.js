@@ -51,7 +51,8 @@ module.exports = {
   },
 
   point: (req, res,next) => {
-    axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=point+of+interest+paris&key=AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E')
+    const city = req.params.city
+    axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=point+of+interest+${city}&key=AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E`)
                 .then(response => { res.json(response.data)})
                 .catch(e => res.status(500).json({error:e.message}))
   }
