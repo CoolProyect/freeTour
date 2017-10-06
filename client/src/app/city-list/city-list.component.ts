@@ -1,8 +1,7 @@
 //Lista de de todas las ciudades
-
-import { Component, OnInit } from '@angular/core';
-import { GuideService } from '../services/guide.service';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core'
+import { GuideService } from '../services/guide.service'
+import { Observable } from 'rxjs/Observable'
 
 @Component({
   selector: 'app-city-list',

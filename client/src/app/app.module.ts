@@ -16,20 +16,20 @@ import { CityListComponent } from './city-list/city-list.component'
 import { LoginformComponent } from './loginform/loginform.component'
 import { PlaceDetailsComponent } from './place-details/place-details.component'
 import { MapComponent } from './map/map.component'
-
+import { BuscadorComponent } from './buscador/buscador.component'
 //services
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service'
 import { GuideService } from './services/guide.service'
 import { AuthService } from './services/auth.service'
 import { PointInterestService } from './services/point-interest.service'
 import { MapService } from './services/map.service'
-
+import {BuscadorService} from './services/buscador.service'
 // modules
 import { FileSelectDirective } from "ng2-file-upload"
 
 import {routes} from './routes';
 import { FilterPipe } from './pipes/filter.pipe';
-import { BuscadorComponent } from './buscador/buscador.component'
+
 
 
 @NgModule({
@@ -63,7 +63,8 @@ import { BuscadorComponent } from './buscador/buscador.component'
     IsLoggedInService,
     GuideService,
     PointInterestService,
-    MapService
+    MapService,
+    BuscadorService
   ],
   bootstrap: [AppComponent]
 })
