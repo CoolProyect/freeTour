@@ -22,11 +22,11 @@ export class MapComponent implements OnInit {
     console.log('LISTA DE SITIOS')
     this.mapService.getPoint().subscribe(result => {
       console.log(result);
-      // for(let i= 0; i < result.results.length; i++){
-      //     this.descriptionPoints.push(result.results[i].name)
-      //     console.log(this.descriptionPoints)
-      // }
-      //   this.descriptionPoints
+      for (let i = 0; i < result.results.length; i++) {
+        this.descriptionPoints.push(result.results[i].name)
+      
+      }
+      this.descriptionPoints
     })
   }
 

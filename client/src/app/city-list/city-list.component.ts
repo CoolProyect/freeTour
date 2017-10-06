@@ -1,6 +1,8 @@
+//Lista de de todas las ciudades
+
 import { Component, OnInit } from '@angular/core';
-import {GuideService} from '../services/guide.service';
-import {Observable} from 'rxjs/Observable';
+import { GuideService } from '../services/guide.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-city-list',
@@ -9,11 +11,11 @@ import {Observable} from 'rxjs/Observable';
 })
 export class CityListComponent implements OnInit {
 
-  guides:object;
+  guides: object;
   constructor(public guideService: GuideService) {
     this.guideService.getList().subscribe(result => this.guides = result)
 
-   }
+  }
 
   ngOnInit() {
   }

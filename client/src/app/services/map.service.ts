@@ -18,10 +18,6 @@ export class MapService {
     return this.http.get(`${BASEURL}/test`, this.options)
        .map((res) => res.json())
 
-    // return this.http.get(`${BASEURL}/test`, this.options)
-    //     .map(res => res.json())
-
-
   }
 
 }

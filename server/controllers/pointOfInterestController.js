@@ -1,4 +1,4 @@
-const pointOfInterestModel = require('../models/PointOfInterestModel.js');
+const pointOfInterestModel = require('../models/PointOfInterestModel.js')
 const axios = require ('axios')
 
 module.exports = {

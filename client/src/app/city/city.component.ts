@@ -1,3 +1,5 @@
+//devuelve los puntos de interes de la ciudad seleciionada
+
 import { Component, OnInit } from '@angular/core'
 import {PointInterestService} from '../services/point-interest.service'
 import {ActivatedRoute, Router} from '@angular/router'

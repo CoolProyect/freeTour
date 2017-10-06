@@ -1,11 +1,7 @@
 <p>
   map works!
 </p>
-<div *ngFor= "let a of points">
-<li>{{a | json}}</li><button> Añadir</button>
-</div>
 
-<p>points</p>
 
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>

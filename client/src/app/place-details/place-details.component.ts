@@ -1,3 +1,5 @@
+//descripcion de cada punto de interes
+
 import { Component, OnInit } from '@angular/core'
 import { PointInterestService } from '../services/point-interest.service'
 import { ActivatedRoute, Router } from '@angular/router'
