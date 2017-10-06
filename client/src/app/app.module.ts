@@ -23,6 +23,7 @@ import { GuideService } from './services/guide.service'
 import { AuthService } from './services/auth.service'
 import { PointInterestService } from './services/point-interest.service'
 import { MapService } from './services/map.service'
+
 // modules
 import { FileSelectDirective } from "ng2-file-upload"
 
@@ -51,7 +52,8 @@ import { FilterPipe } from './pipes/filter.pipe'
     RouterModule.forRoot(routes),
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyA9W78WCMWZm69WxVpbW4toJk2owfu_R0M'
+      apiKey: 'AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E',
+      libraries: ["places"]
     })
   ],
   providers: [

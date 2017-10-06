@@ -10,10 +10,12 @@ import {Observable} from 'rxjs/Observable';
 export class CityListComponent implements OnInit {
 
   guides:object;
-  constructor(public guideService: GuideService) { }
+  constructor(public guideService: GuideService) {
+    this.guideService.getList().subscribe(result => this.guides = result)
+
+   }
 
   ngOnInit() {
-    this.guideService.getList().subscribe(result => this.guides = result)
   }
 
 

@@ -8,9 +8,9 @@ export class GuideService {
 
   BASE_URL: string = 'http://localhost:3000'
 
-    constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
-    getList() {
+  getList() {
     return this.http.get(`${this.BASE_URL}/guides`)
       .map((res) => res.json());
   }

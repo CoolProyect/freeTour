@@ -23,5 +23,7 @@ router.post('/pointInterest/new', pointOfInterestController.create)
 router.put('/pointInterest/:id/edit',checkIDParam, pointOfInterestController.update)
 router.delete('/pointInterest/:id/delete', checkIDParam, pointOfInterestController.remove)
 
+router.get('/test', pointOfInterestController.point)
+
 
 module.exports = router

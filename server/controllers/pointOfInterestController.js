@@ -1,4 +1,5 @@
 const pointOfInterestModel = require('../models/PointOfInterestModel.js');
+const axios = require ('axios')
 
 module.exports = {
 
@@ -47,5 +48,11 @@ module.exports = {
     pointOfInterestModel.findByIdAndRemove(req.params.id)
       .then(point => res.status(200).json(point))
       .catch(e => res.status(500).json({error:e.message}))
+  },
+
+  point: (req, res,next) => {
+    axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=point+of+interest+paris&key=AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E')
+                .then(response => { res.json(response.data)})
+                .catch(e => res.status(500).json({error:e.message}))
   }
 };

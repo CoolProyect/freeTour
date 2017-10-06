@@ -12,6 +12,7 @@ const authRoutes = require('./routes/auth');
 const routes = require('./routes/routes')
 const mongoose = require('mongoose');
 const cors = require('cors');
+const axios = require('axios')
 
 const app = express();
 
