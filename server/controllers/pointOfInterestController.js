@@ -1,6 +1,6 @@
 const pointOfInterestModel = require('../models/PointOfInterestModel.js')
 const axios = require('axios')
-const querystring = require('querystring');
+
 
 module.exports = {
 
@@ -83,9 +83,11 @@ module.exports = {
         }
       })
       .then(response => {
+        console.log(response)
         res.json(response.data)
       })
       .catch(e => {
+        console.log(e);
         res.status(500).json({
           error: e.message
         });
