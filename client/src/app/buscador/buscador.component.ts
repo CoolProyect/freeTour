@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import {BuscadorService } from '../services/buscador.service'
 import { Observable } from 'rxjs/Observable'
-
+import { Router } from '@angular/router'
 
 interface BuscadorForm{
   city:string
@@ -19,20 +19,13 @@ export class BuscadorComponent implements OnInit {
     city:""
   }
 
-  constructor(public buscadorService: BuscadorService) { }
+  constructor(public buscadorService: BuscadorService, public router:Router) { }
 
   ngOnInit() {
 
   }
     buscar(){
-      const {city} = this.formInfo
-      if(city != ""){
-        console.log(`Has buscado ${city} `)
-          this.buscadorService.getPoint(city)
-          .map( p => console.log(p) )
-          .subscribe()
-      }else{
-          console.log("Pon una ciudad PENDEJO!!!!");
-      }
+      console.log("entro")
+      this.router.navigate(["/city", this.formInfo.city])
     }
 }

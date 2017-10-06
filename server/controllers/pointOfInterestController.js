@@ -84,7 +84,7 @@ module.exports = {
       })
       .then(response => {
         console.log(response)
-        res.json(response.data)
+        res.json(response.data.results)
       })
       .catch(e => {
         console.log(e);
