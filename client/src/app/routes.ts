@@ -13,7 +13,7 @@ import { IsLoggedInService } from './services/isLoggedIn.canactivate.service'
 export const routes: Routes = [
     { path: '', component: IndexComponent },
     { path: 'city/list', component: CityListComponent },
-    { path: 'city/:id', component: CityComponent },
+    { path: 'city/:city', component: CityComponent },
     { path: 'city/:id/placeDetails/:id', component: PlaceDetailsComponent },
     { path: 'login', component: LoginformComponent },
     { path: 'user',

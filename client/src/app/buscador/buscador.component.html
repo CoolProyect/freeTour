@@ -4,4 +4,4 @@
 
 <label> City </label>
   <input type="text" [(ngModel)]="formInfo.city" name="city"/>
-  <button (click)="buscar()">Buscar</button>
+  <button (click)="buscar()" [routerLink]="['/city', ':city']">Buscar</button>
