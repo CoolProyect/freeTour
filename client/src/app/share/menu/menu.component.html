@@ -4,7 +4,13 @@
      <a href="#" class="brand-logo">Logo</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
        <li><a [routerLink]="['city/list']"> Cities </a></li>
-       
+         <a class="dropdown-button btn-floating btn-large indigo accent-4" data-activates='dropdown1'>
+           <i class="large material-icons ">person</i>
+         </a>
+         <ul id='dropdown1' class='dropdown-content'>
+           <li><a class="indigo-text accent-4" [routerLink]="['login']">Login</a></li>
+           <li><a class="indigo-text accent-4" [routerLink]="['signup']">Signup</a></li>
      </ul>
+        </ul>
    </div>
  </nav>

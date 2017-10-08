@@ -1,0 +1,20 @@
+
+.fondo{
+  background-image: url(http://i.huffpost.com/gen/4159310/images/o-COUPLE-TRAVELING-facebook.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+}
+
+.margenTop{
+  margin-top: 10vh;
+}
+
+img {
+  height: 20vh;
+  width: 10vh;
+}
+
+.primera{
+  padding-left: 10vh;
+}
