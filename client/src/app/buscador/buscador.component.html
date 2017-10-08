@@ -1,18 +1,17 @@
-
-
-
-  <input type="text" />
-
-
-
+<div class="row">
+    <div class="col l4"></div>
+  <div class="col s12 m6 l4 xl4 ">
   <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper indigo accent-4">
         <form>
           <div class="input-field">
-            <input id="search" type="search" [(ngModel)]="formInfo.city" name="city" required>
+            <input id="search" type="search" placeholder="¿Que te apetece conocer?"[(ngModel)]="formInfo.city" name="city" required>
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
+            <button hidden="true" (click)="buscar()" [routerLink]="['/city', ':city']">Buscar</button>
           </div>
         </form>
       </div>
     </nav>
+</div>
+</div>
