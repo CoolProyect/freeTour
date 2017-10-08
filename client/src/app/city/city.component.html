@@ -1,12 +1,19 @@
-<p>
-  city works!
-</p>
 
-<div *ngFor= "let a of interest">
-<li>{{a.name | json}}</li>  
+<h1>['city']</h1>
+<div class="row">
+  <div class="col s6">
+    <app-map></app-map>
+  </div>
+  <div class="col s6">
+    <div class="row">
+      <div class="col s12 m3 l6" *ngFor="let a of interest">
+        <span class="chip indigo accent-3 white-text">{{a.name | json}}</span>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 <a [routerLink]="['']"> Home </a> <br>
 <a [routerLink]="['/city/:id/placeDetails/:id']"> Places Details </a>
-
-<app-map></app-map>
