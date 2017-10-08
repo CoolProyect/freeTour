@@ -4,6 +4,23 @@
 
 
 <a [routerLink]="['city/list']"> Cities </a> <br>
-<a [routerLink]="['login']"> Login </a>
+
+<div *ngIf="!user">
+  <a [routerLink]="['login']"> Login </a> <br>
+  <a [routerLink]="['signup']"> signup </a>
+</div>
+
+
+<div *ngIf="user">
+  <h1>
+    Hola {{user.username}} estas en el index
+  </h1>
+  <h2> You are now logged in as {{ user.username }}!! </h2>
+  <p> Here's the user object </p>
+  <pre> {{ user | json }} </pre>
+  <a [routerLink]="['user']"> Profile </a> <br>
+
+
+</div>
 
 <app-buscador></app-buscador>

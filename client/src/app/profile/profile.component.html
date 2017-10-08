@@ -1,9 +1,26 @@
-<p>
-  Hola {{user.username}}
-</p>
+
 
 
 
 <a [routerLink]="['']"> Home </a> <br>
 <a [routerLink]="['/city']"> City List </a> <br>
 <a [routerLink]="['']"> Mis Rutas </a>
+
+<div *ngIf="!user">
+  <h2>NO USER LOGGED IN</h2>
+</div>
+
+
+<div *ngIf="user">
+  <h2>
+    Hola {{user.username}}
+  </h2>
+  <h2> You are now logged in as {{ user.username }}!! </h2>
+  <p> Here's the user object </p>
+  <pre> {{ user | json }} </pre>
+  <app-buscador></app-buscador>
+  <a [routerLink]="['']"> Home </a> <br>
+
+
+  <button (click)="auth.logout().subscribe()"> logout </button>
+</div>

@@ -7,15 +7,14 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const debug = require('debug')("angularauth:"+path.basename(__filename).split('.')[0])
 
-var authRoutes = express.Router()
+const authRoutes = express.Router()
 
 /* GET home page. */
 authRoutes.post('/signup', (req, res, next) => {
   const {username, password} = req.body;
 
-
   if (!username || !password)
-    return res.status(400).json({ message: 'Provide username and password' })
+    return res.status(400).json({ message: 'Provide username and password' });
 
   debug('Find user in DB')
 
@@ -29,7 +28,6 @@ authRoutes.post('/signup', (req, res, next) => {
     const theUser = new User({
       username,
       password: hashPass,
-
     })
     console.log("Esto vale User" + theUser)
     return theUser.save()

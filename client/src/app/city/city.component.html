@@ -2,9 +2,8 @@
   city works!
 </p>
 
-<div *ngFor= "let a of interest ">
-  
-
+<div *ngFor= "let a of interest">
+<li>{{a.name | json}}</li>  
 </div>
 
 <a [routerLink]="['']"> Home </a> <br>

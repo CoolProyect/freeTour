@@ -13,10 +13,13 @@ import { IndexComponent } from './index/index.component'
 import { MenuComponent } from './share/menu/menu.component'
 import { ProfileComponent } from './profile/profile.component'
 import { CityListComponent } from './city-list/city-list.component'
-import { LoginformComponent } from './loginform/loginform.component'
+//import { LoginformComponent } from './loginform/loginform.component'
 import { PlaceDetailsComponent } from './place-details/place-details.component'
 import { MapComponent } from './map/map.component'
 import { BuscadorComponent } from './buscador/buscador.component'
+import { LoginformNewComponent } from './loginform-new/loginform-new.component';
+import { SignupformNewComponent } from './signupform-new/signupform-new.component';
+
 //services
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service'
 import { GuideService } from './services/guide.service'
@@ -35,7 +38,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginformComponent,
+    //LoginformComponent,
     IndexComponent,
     ProfileComponent,
     CityComponent,
@@ -45,7 +48,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     FileSelectDirective,
     MapComponent,
     FilterPipe,
-    BuscadorComponent
+    BuscadorComponent,
+    LoginformNewComponent,
+    SignupformNewComponent
   ],
   imports: [
     BrowserModule,
