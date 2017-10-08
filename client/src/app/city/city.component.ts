@@ -30,11 +30,3 @@ export class CityComponent implements OnInit {
   }
 
 }
-// const {city} = this.formInfo
-// if(city != ""){
-//     this.buscadorService.getPoint(city)
-//     .map( p => console.log(p) )
-//     .subscribe()
-// }else{
-//     console.log("Pon una ciudad ");
-// }
