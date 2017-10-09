@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import 'rxjs'
 import { environment } from '../../environments/environment'
 
-const BASEURL = environment.BASEURL;
+const BASEURL:string = environment.BASEURL;
 
 @Injectable()
 export class MapService {

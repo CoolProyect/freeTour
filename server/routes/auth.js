@@ -1,9 +1,7 @@
 const express = require('express')
 const passport = require('passport')
 const multer = require('multer')
-const image = multer({
-  dest: './public/pictures/'
-})
+const image = multer({ dest: './public/pictures/'})
 const path = require('path')
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
@@ -11,7 +9,6 @@ const debug = require('debug')("angularauth:" + path.basename(__filename).split(
 
 const authRoutes = express.Router()
 
-/* GET home page. */
 authRoutes.post('/signup', (req, res, next) => {
   const {
     username,

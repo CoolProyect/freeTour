@@ -4,18 +4,18 @@ import { Http } from '@angular/http';
 import 'rxjs';
 import { environment } from '../../environments/environment'
 
-
+const BASEURL:string = environment.BASEURL;
 
 @Injectable()
 export class BuscadorService {
   private options = { withCredentials: true }
 
-  BASEURL = environment.BASEURL;
+
 
   constructor(private http: Http) { }
 
   getPoint(city) {
-    return this.http.get(`${this.BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
+    return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
       .map((res) => res.json());
   }
 

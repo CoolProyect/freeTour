@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-menu></app-menu>\n<router-outlet></router-outlet>\n"
+module.exports = "\n<app-menu></app-menu>\n<router-outlet></router-outlet>\n<p>8================D {{ environment }}</p>\n"
 
 /***/ }),
 
@@ -44,6 +44,7 @@ module.exports = "\n<app-menu></app-menu>\n<router-outlet></router-outlet>\n"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -56,11 +57,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
     function AppComponent(auth) {
         var _this = this;
         this.auth = auth;
         this.title = 'Viaja Conmigo';
+        this.environment = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production;
         this.auth.getLoginEventEmitter()
             .subscribe(function (user) { return _this.user = user; });
     }
@@ -986,14 +989,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
 var BuscadorService = (function () {
     function BuscadorService(http) {
         this.http = http;
         this.options = { withCredentials: true };
-        this.BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
     }
     BuscadorService.prototype.getPoint = function (city) {
-        return this.http.get(this.BASEURL + "/point-interest/gmaps/?city=" + city, this.options)
+        return this.http.get(BASEURL + "/point-interest/gmaps/?city=" + city, this.options)
             .map(function (res) { return res.json(); });
     };
     return BuscadorService;
@@ -1031,26 +1034,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
 var GuideService = (function () {
     function GuideService(http) {
         this.http = http;
-        this.BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
         this.options = { withCredentials: true };
     }
     GuideService.prototype.getList = function () {
-        return this.http.get(this.BASEURL + "/guides")
+        return this.http.get(BASEURL + "/guides")
             .map(function (res) { return res.json(); });
     };
     GuideService.prototype.get = function (id) {
-        return this.http.get(this.BASEURL + "/guides/" + id, this.options)
+        return this.http.get(BASEURL + "/guides/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     GuideService.prototype.edit = function (guide) {
-        return this.http.put(this.BASEURL + "/guides/" + guide.id, guide, this.options)
+        return this.http.put(BASEURL + "/guides/" + guide.id, guide, this.options)
             .map(function (res) { return res.json(); });
     };
     GuideService.prototype.remove = function (id) {
-        return this.http.delete(this.BASEURL + "/guides/" + id, this.options)
+        return this.http.delete(BASEURL + "/guides/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     return GuideService;
@@ -1171,26 +1174,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
 var PointInterestService = (function () {
     function PointInterestService(http) {
         this.http = http;
-        this.BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
         this.options = { withCredentials: true };
     }
     PointInterestService.prototype.getList = function () {
-        return this.http.get(this.BASEURL + "/pointInterest", this.options)
+        return this.http.get(BASEURL + "/pointInterest", this.options)
             .map(function (res) { return res.json(); });
     };
     PointInterestService.prototype.get = function (id) {
-        return this.http.get(this.BASEURL + "/pointInterest/" + id, this.options)
+        return this.http.get(BASEURL + "/pointInterest/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     PointInterestService.prototype.edit = function (pointInterest) {
-        return this.http.put(this.BASEURL + "/pointInterest/" + pointInterest.id, pointInterest, this.options)
+        return this.http.put(BASEURL + "/pointInterest/" + pointInterest.id, pointInterest, this.options)
             .map(function (res) { return res.json(); });
     };
     PointInterestService.prototype.remove = function (id) {
-        return this.http.delete(this.BASEURL + "/pointInterest/" + id, this.options)
+        return this.http.delete(BASEURL + "/pointInterest/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     return PointInterestService;
