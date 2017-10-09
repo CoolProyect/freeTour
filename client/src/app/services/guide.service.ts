@@ -3,30 +3,31 @@ import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { environment } from '../../environments/environment'
 
+const BASEURL:string = environment.BASEURL;
+
 @Injectable()
 export class GuideService {
 
-  BASEURL = environment.BASEURL;
 
   constructor(private http: Http) { }
       private options = { withCredentials: true }
   getList() {
-    return this.http.get(`${this.BASEURL}/guides`)
+    return this.http.get(`${BASEURL}/guides`)
       .map((res) => res.json());
   }
 
   get(id) {
-    return this.http.get(`${this.BASEURL}/guides/${id}`, this.options)
+    return this.http.get(`${BASEURL}/guides/${id}`, this.options)
       .map((res) => res.json());
   }
 
   edit(guide) {
-    return this.http.put(`${this.BASEURL}/guides/${guide.id}`, guide, this.options)
+    return this.http.put(`${BASEURL}/guides/${guide.id}`, guide, this.options)
       .map((res) => res.json());
   }
 
   remove(id) {
-    return this.http.delete(`${this.BASEURL}/guides/${id}`, this.options)
+    return this.http.delete(`${BASEURL}/guides/${id}`, this.options)
       .map((res) => res.json());
   }
 

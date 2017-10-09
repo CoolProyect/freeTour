@@ -986,14 +986,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
 var BuscadorService = (function () {
     function BuscadorService(http) {
         this.http = http;
         this.options = { withCredentials: true };
-        this.BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
     }
     BuscadorService.prototype.getPoint = function (city) {
-        return this.http.get(this.BASEURL + "/point-interest/gmaps/?city=" + city, this.options)
+        return this.http.get(BASEURL + "/point-interest/gmaps/?city=" + city, this.options)
             .map(function (res) { return res.json(); });
     };
     return BuscadorService;
@@ -1031,26 +1031,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
 var GuideService = (function () {
     function GuideService(http) {
         this.http = http;
-        this.BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
         this.options = { withCredentials: true };
     }
     GuideService.prototype.getList = function () {
-        return this.http.get(this.BASEURL + "/guides")
+        return this.http.get(BASEURL + "/guides")
             .map(function (res) { return res.json(); });
     };
     GuideService.prototype.get = function (id) {
-        return this.http.get(this.BASEURL + "/guides/" + id, this.options)
+        return this.http.get(BASEURL + "/guides/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     GuideService.prototype.edit = function (guide) {
-        return this.http.put(this.BASEURL + "/guides/" + guide.id, guide, this.options)
+        return this.http.put(BASEURL + "/guides/" + guide.id, guide, this.options)
             .map(function (res) { return res.json(); });
     };
     GuideService.prototype.remove = function (id) {
-        return this.http.delete(this.BASEURL + "/guides/" + id, this.options)
+        return this.http.delete(BASEURL + "/guides/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     return GuideService;
@@ -1171,26 +1171,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
 var PointInterestService = (function () {
     function PointInterestService(http) {
         this.http = http;
-        this.BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
         this.options = { withCredentials: true };
     }
     PointInterestService.prototype.getList = function () {
-        return this.http.get(this.BASEURL + "/pointInterest", this.options)
+        return this.http.get(BASEURL + "/pointInterest", this.options)
             .map(function (res) { return res.json(); });
     };
     PointInterestService.prototype.get = function (id) {
-        return this.http.get(this.BASEURL + "/pointInterest/" + id, this.options)
+        return this.http.get(BASEURL + "/pointInterest/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     PointInterestService.prototype.edit = function (pointInterest) {
-        return this.http.put(this.BASEURL + "/pointInterest/" + pointInterest.id, pointInterest, this.options)
+        return this.http.put(BASEURL + "/pointInterest/" + pointInterest.id, pointInterest, this.options)
             .map(function (res) { return res.json(); });
     };
     PointInterestService.prototype.remove = function (id) {
-        return this.http.delete(this.BASEURL + "/pointInterest/" + id, this.options)
+        return this.http.delete(BASEURL + "/pointInterest/" + id, this.options)
             .map(function (res) { return res.json(); });
     };
     return PointInterestService;
