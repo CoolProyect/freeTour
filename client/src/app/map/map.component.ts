@@ -10,8 +10,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class MapComponent implements OnInit {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 40.417123;
+  lng: number = -3.703565;
   listDescriptionsPoints: Array<any>
   descriptionPoints: any = []
   points;
@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
       console.log(result);
       for (let i = 0; i < result.results.length; i++) {
         this.descriptionPoints.push(result.results[i].name)
-      
+
       }
       this.descriptionPoints
     })

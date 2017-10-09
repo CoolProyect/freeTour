@@ -19,5 +19,4 @@ export class CityListComponent implements OnInit {
   ngOnInit() {
   }
 
-
 }
