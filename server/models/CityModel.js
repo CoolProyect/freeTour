@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const citySchema = new Schema({
   'name': String,
   'photo': String,
-  'pointOfInterest': {
+  'pointOfInterest': [{
     type: Schema.Types.ObjectId,
     ref: 'PointOfInterest'
-  },
+  }],
   'description': String
 });
 
