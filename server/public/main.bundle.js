@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<app-menu></app-menu>\n<router-outlet></router-outlet>\n"
+module.exports = "\n<app-menu></app-menu>\n<router-outlet></router-outlet>\n<p>producción: {{ environment }}</p>\n"
 
 /***/ }),
 
@@ -44,6 +44,7 @@ module.exports = "\n<app-menu></app-menu>\n<router-outlet></router-outlet>\n"
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -56,11 +57,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
     function AppComponent(auth) {
         var _this = this;
         this.auth = auth;
         this.title = 'Viaja Conmigo';
+        this.environment = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production;
         this.auth.getLoginEventEmitter()
             .subscribe(function (user) { return _this.user = user; });
     }
