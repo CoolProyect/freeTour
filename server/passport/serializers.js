@@ -8,6 +8,6 @@ passport.serializeUser((loggedInUser, next) => {
 
 passport.deserializeUser((userIdFromSession, next) => {
   User.findById(userIdFromSession)
-  .then(user => next(null,user))
-  .catch(e => next(e));
+    .then(user => next(null, user))
+    .catch(e => next(e));
 });

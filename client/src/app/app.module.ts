@@ -26,11 +26,11 @@ import { GuideService } from './services/guide.service'
 import { AuthService } from './services/auth.service'
 import { PointInterestService } from './services/point-interest.service'
 import { MapService } from './services/map.service'
-import {BuscadorService} from './services/buscador.service'
+import { BuscadorService } from './services/buscador.service'
 // modules
 import { FileSelectDirective } from "ng2-file-upload"
 
-import {routes} from './routes';
+import { routes } from './routes';
 import { FilterPipe } from './pipes/filter.pipe';
 
 

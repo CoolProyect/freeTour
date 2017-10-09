@@ -8,9 +8,9 @@ describe('LoginformNewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginformNewComponent ]
+      declarations: [LoginformNewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

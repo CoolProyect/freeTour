@@ -30,22 +30,34 @@ module.exports = {
     });
 
     City.save()
-      .then( c => res.status(200).json({message: 'New city created!',city: c}))
-      .catch( e => res.status(500).json({
+      .then(c => res.status(200).json({
+        message: 'New city created!',
+        city: c
+      }))
+      .catch(e => res.status(500).json({
         error: e.message
       }))
   },
 
   update: (req, res, next) => {
-    const {name, photo, pointOfInterest, description} = req.body
+    const {
+      name,
+      photo,
+      pointOfInterest,
+      description
+    } = req.body
     cityModel.findByIdAndUpdate(req.params.id)
       .then(city => res.status(200).json(city))
-      .catch(e => res.status(500).json({error:e.message}))
-    },
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
+  },
 
-    remove: (req, res, next) => {
+  remove: (req, res, next) => {
     cityModel.findByIdAndRemove(req.params.id)
       .then(city => res.status(200).json(city))
-      .catch(e => res.status(500).json({error:e.message}))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
   }
 };

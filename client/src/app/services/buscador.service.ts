@@ -19,6 +19,6 @@ export class BuscadorService {
       .map((res) => res.json());
   }
 
-  
+
 
 }

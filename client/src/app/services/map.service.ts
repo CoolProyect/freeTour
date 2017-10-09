@@ -16,7 +16,7 @@ export class MapService {
 
   getPoint() {
     return this.http.get(`${BASEURL}/test`, this.options)
-       .map((res) => res.json())
+      .map((res) => res.json())
 
   }
 

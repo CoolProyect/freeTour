@@ -13,16 +13,18 @@ import { LoginformNewComponent } from './loginform-new/loginform-new.component';
 import { SignupformNewComponent } from './signupform-new/signupform-new.component';
 
 export const routes: Routes = [
-    { path: '', component: IndexComponent },
-    { path: 'city/list', component: CityListComponent },
-    { path: 'city/:city', component: CityComponent },
-    { path: 'city/:id/placeDetails/:id', component: PlaceDetailsComponent },
-    //{ path: 'login', component: LoginformComponent },
-    { path: 'login', component: LoginformNewComponent },
-    { path: 'signup', component: SignupformNewComponent },
+  { path: '', component: IndexComponent },
+  { path: 'city/list', component: CityListComponent },
+  { path: 'city/:city', component: CityComponent },
+  { path: 'city/:id/placeDetails/:id', component: PlaceDetailsComponent },
+  //{ path: 'login', component: LoginformComponent },
+  { path: 'login', component: LoginformNewComponent },
+  { path: 'signup', component: SignupformNewComponent },
 
-    { path: 'user',
-      component: ProfileComponent,
-      canActivate: [ IsLoggedInService ]  },
-    { path: '**', redirectTo: '' }
+  {
+    path: 'user',
+    component: ProfileComponent,
+    canActivate: [IsLoggedInService]
+  },
+  { path: '**', redirectTo: '' }
 ];
