@@ -1,7 +1,6 @@
 //lista reducida de ciudades con su foto, pagina principal
-
 import { Component, OnInit } from '@angular/core'
-import {GuideService} from '../services/guide.service'
+import { GuideService } from '../services/guide.service'
 
 
 @Component({

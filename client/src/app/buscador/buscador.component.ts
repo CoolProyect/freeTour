@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core'
-import {BuscadorService } from '../services/buscador.service'
+import { BuscadorService } from '../services/buscador.service'
 import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router'
 
-interface BuscadorForm{
-  city:string
+interface BuscadorForm {
+  city: string
 
 }
 
@@ -15,17 +15,17 @@ interface BuscadorForm{
 })
 export class BuscadorComponent implements OnInit {
 
-  formInfo:BuscadorForm = {
-    city:""
+  formInfo: BuscadorForm = {
+    city: ""
   }
 
-  constructor(public buscadorService: BuscadorService, public router:Router) { }
+  constructor(public buscadorService: BuscadorService, public router: Router) { }
 
   ngOnInit() {
 
   }
-    buscar(){
-      console.log("entro")
-      this.router.navigate(["/city", this.formInfo.city])
-    }
+  buscar() {
+    console.log("entro")
+    this.router.navigate(["/city", this.formInfo.city])
+  }
 }

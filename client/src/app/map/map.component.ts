@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
       console.log(result);
       for (let i = 0; i < result.results.length; i++) {
         this.descriptionPoints.push(result.results[i].name)
-      
+
       }
       this.descriptionPoints
     })
