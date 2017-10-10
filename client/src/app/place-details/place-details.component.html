@@ -4,9 +4,8 @@
 
 <a [routerLink]="['']"> Home </a> <br>
 <a [routerLink]="['/city/:id']">City</a>
-<p>{{arrIDs[0].ID}}</p>
 <div *ngFor="let a of arrIDs">
-<p>{{a.ID}}</p>
+  <p>{{a.place}}</p>
 <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU" >
 
 </div>
