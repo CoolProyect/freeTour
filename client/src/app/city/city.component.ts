@@ -31,15 +31,12 @@ export class CityComponent implements OnInit {
           console.log('Vamos imprimiendo ruta a fotos =>')
           console.log(this.interest)
           for(let i = 0; i<this.interest.length; i++){
-            // console.log(`El ID de la foto es ${i}`, this.interest[i].photos[0].photo_reference)
             photoID.push({place: this.interest[i].name, ID:this.interest[i].photos[0].photo_reference})
           }
           console.log("City Component",photoID)
           this.buscadorService.setPhoto(photoID)
         })
-        // this.buscadorService.getMarker(params['city'])
-        // .map(m => {this.marker.push(m); console.log("esto es marker", this.marker)})
-        // .subscribe()
+
     });
 
   }
