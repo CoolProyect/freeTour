@@ -27,11 +27,8 @@ export class BuscadorService {
 
     }
 
-  getPhoto(city){
-    return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
-    .map((res)=> res.json())
-    // .map((res) => this.photo.push({place: res.name, photoID: res.photos[0].photo_reference}))
-
+  getPhoto(photo){
+    return photo
   }
 
 }

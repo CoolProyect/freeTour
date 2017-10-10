@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core'
 import { PointInterestService } from '../services/point-interest.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
+import { BuscadorService } from '../services/buscador.service'
+
 
 @Component({
   selector: 'app-place-details',
@@ -12,33 +14,18 @@ import { Observable } from 'rxjs/Observable'
 })
 export class PlaceDetailsComponent implements OnInit {
 
-  place;
+  photoID: Array<string>
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private pointInterestService: PointInterestService) { }
+    public buscadorService: BuscadorService) {
+        //this.photoID = this.buscadorService.getPhoto()
+    }
 
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.getPointDetails(params['id'])
-    });
-  }
 
 
-  getPointDetails(id) {
-    this.pointInterestService.get(id)
-      .subscribe((place) => {
-        this.place = place
-      });
-  }
-  deletePoint() {
-    if (window.confirm('Are you sure?')) {
-      this.pointInterestService.remove(this.place._id)
-        .subscribe(() => {
-          this.router.navigate([''])
-        });
     }
   }
-
-}
