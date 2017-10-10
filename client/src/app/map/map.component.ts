@@ -36,10 +36,10 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log(`El parametro recibido es: ${params['city']}`);
-      this.buscadorService.getMarker(params['city'])
-        .map(m => { this.markersCity = m; console.log(this.markersCity) })
-        .subscribe()
-    });
+      // console.log(`El parametro recibido es: ${params['city']}`);
+    //   this.buscadorService.getMarker(params['city'])
+    //     .map(m => { this.markersCity = m; console.log(this.markersCity) })
+    //     .subscribe()
+     });
   }
 }

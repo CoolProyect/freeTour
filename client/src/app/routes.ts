@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'city/list', component: CityListComponent },
   { path: 'city/:city', component: CityComponent },
-  { path: 'city/:id/placeDetails/:id', component: PlaceDetailsComponent },
+  { path: 'city/details/placeDetails', component: PlaceDetailsComponent },
   //{ path: 'login', component: LoginformComponent },
   { path: 'login', component: LoginformNewComponent },
   { path: 'signup', component: SignupformNewComponent },
