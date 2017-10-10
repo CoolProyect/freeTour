@@ -10,22 +10,11 @@ const BASEURL:string = environment.BASEURL;
 export class BuscadorService {
   private options = { withCredentials: true }
 
-
-
   constructor(private http: Http) { }
 
   getPoint(city) {
     return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
-      .map((res) => res.json());
+      .map((res) => res.json())
   }
-
-
-
-
-
-
-  getMarker(city){
-    return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
-      .map((res) => res.json());  }
 
 }
