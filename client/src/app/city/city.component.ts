@@ -11,7 +11,7 @@ import 'rxjs'
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
-  interest: Array<object> = []
+  interest: any = []
   points: object;
   constructor(
     private router: Router,
@@ -23,8 +23,17 @@ export class CityComponent implements OnInit {
       console.log(`El parametro recibido es: ${params['city']}`);
       console.log('esto es params', params)
       this.buscadorService.getPoint(params['city'])
-        .map(p => { this.interest = p; console.log(this.interest) })
-        .subscribe()
+        .subscribe( churro => {
+          this.interest=churro
+          console.log('Vamos imprimiendo ruta a fotos =>')
+          for(let i = 0; i<this.interest.length; i++){
+            console.log(`El ID de la foto es ${i}`, this.interest[i].photos[0].photo_reference)
+
+          }
+        })
+        // this.buscadorService.getMarker(params['city'])
+        // .map(m => {this.marker.push(m); console.log("esto es marker", this.marker)})
+        // .subscribe()
     });
 
   }

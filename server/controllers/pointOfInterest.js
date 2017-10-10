@@ -77,13 +77,14 @@ module.exports = {
     const gmaps_url = "https://maps.googleapis.com/maps/api/place/textsearch/json";
     axios.get(gmaps_url, {
         params: {
-          key: process.env.KEYGOOGLE,
+          key: 'AIzaSyA_T99jAyuNf5azETdV06-ALQCoMbrVqUo',
           query: "point of interest " + city
         }
       })
       .then(response => {
+        console.log('Response del servidor con query de la city     =>');
         console.log(response)
-        res.json(response.data.results)
+        return res.json(response.data.results)
       })
       .catch(e => {
         console.log(e);
