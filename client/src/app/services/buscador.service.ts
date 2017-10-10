@@ -21,4 +21,11 @@ export class BuscadorService {
 
 
 
+
+
+
+  getMarker(city){
+    return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
+      .map((res) => res.json());  }
+
 }

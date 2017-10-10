@@ -7,6 +7,7 @@ interface marker {
   nombre: string;
   lat: number;
   lng: number;
+
 }
 
 @Component({
@@ -20,10 +21,10 @@ export class MapComponent implements OnInit {
     nombre: 'Madrid',
     lat: 40.417123,
     lng: -3.703565,
+
   }]
 
   points;
-
   constructor(public mapService: MapService) { }
 
   ngOnInit() {

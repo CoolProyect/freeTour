@@ -19,6 +19,7 @@ router.delete('/city//delete', checkIDParam, cityController.remove)
 
 router.get('/point-interest', pointOfInterestController.list)
 router.get('/point-interest/gmaps', pointOfInterestController.point)
+router.get('/point-interest/gmaps', pointOfInterestController.marker)
 router.post('/point-interest/new', pointOfInterestController.create)
 
 router.get('/point-interest/', checkIDParam, pointOfInterestController.show)
