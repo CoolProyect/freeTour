@@ -7,9 +7,10 @@ import 'rxjs'
 
 interface marker {
   nombre: string;
-  lat: number;
-  lng: number;
-
+  center: {
+    lat: number;
+    lng: number;
+  }
 }
 
 @Component({
@@ -20,10 +21,10 @@ interface marker {
 
 export class MapComponent implements OnInit {
   markers: marker[] = [{
-    nombre: 'Madrid',
-    lat: 40.417123,
-    lng: -3.703565,
-
+        nombre: 'Madrid',
+        center: {lat: 40.417123,
+        lng: -3.703565,
+      }
   }]
 
   markersCity;
