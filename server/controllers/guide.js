@@ -1,6 +1,4 @@
-const guideModel = require('../models/GuideModel');
-
-
+const guideModel = require('../models/Guide')
 
 module.exports = {
 

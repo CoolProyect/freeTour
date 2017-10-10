@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/map'
 import { environment } from '../../environments/environment'
@@ -7,8 +7,6 @@ const BASEURL:string = environment.BASEURL;
 
 @Injectable()
 export class PointInterestService {
-
-
 
   constructor(private http: Http) { }
 

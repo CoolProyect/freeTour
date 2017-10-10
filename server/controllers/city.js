@@ -1,9 +1,6 @@
-const cityModel = require('../models/CityModel.js');
-
+const cityModel = require('../models/City')
 
 module.exports = {
-
-
   list: (req, res, next) => {
     cityModel.find({})
       .then(city => res.status(200).json(city))
