@@ -4,8 +4,11 @@
 
 <a [routerLink]="['']"> Home </a> <br>
 <a [routerLink]="['/city/:id']">City</a>
+<div *ngFor="let a of arrIDs">
+  <p>{{a.place}}</p>
+<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU" >
 
-
+</div>
 <div *ngIf= "user">
   <a href="/guides/:id/edit/">Editar</a>
   <a href="/guides/:id /delete/">Eliminar</a>

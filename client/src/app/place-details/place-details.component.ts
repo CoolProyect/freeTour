@@ -1,9 +1,11 @@
 //descripcion de cada punto de interes
-
 import { Component, OnInit } from '@angular/core'
 import { PointInterestService } from '../services/point-interest.service'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Observable } from 'rxjs/Observable'
+import { BuscadorService } from '../services/buscador.service'
+import 'rxjs'
+
 
 @Component({
   selector: 'app-place-details',
@@ -11,34 +13,17 @@ import { Observable } from 'rxjs/Observable'
   styleUrls: ['./place-details.component.css']
 })
 export class PlaceDetailsComponent implements OnInit {
-
-  place;
+  photoID: any = []
+  arrIDs:Array<object>
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private pointInterestService: PointInterestService) { }
-
+    public buscadorService: BuscadorService) {
+    }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.getPointDetails(params['id'])
-    });
-  }
+    this.arrIDs = this.buscadorService.getPhoto()
+    console.log(this.arrIDs)
 
-
-  getPointDetails(id) {
-    this.pointInterestService.get(id)
-      .subscribe((place) => {
-        this.place = place
-      });
-  }
-  deletePoint() {
-    if (window.confirm('Are you sure?')) {
-      this.pointInterestService.remove(this.place._id)
-        .subscribe(() => {
-          this.router.navigate([''])
-        });
     }
   }
-
-}

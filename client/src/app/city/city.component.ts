@@ -10,16 +10,21 @@ import 'rxjs'
   templateUrl: './city.component.html',
   styleUrls: ['./city.component.css']
 })
+
 export class CityComponent implements OnInit {
-  interest: any = []
-  points: object
-  marker: Array<any> = []
+    interest: any = []
+    points: object
+
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     public buscadorService: BuscadorService) { }
 
   ngOnInit() {
+    let   marker = []
+    let photoID = []
+
     this.route.params.subscribe(params => {
       console.log(`El parametro recibido es: ${params['city']}`);
       console.log('esto es params', params)
@@ -27,12 +32,13 @@ export class CityComponent implements OnInit {
         .subscribe(p => {
           this.interest = p
           for (let i = 0; i < this.interest.length; i++) {
-            this.marker.push(this.interest[i].geometry.location)
-          } console.log(this.marker)
-
+            marker.push(this.interest[i].geometry.location)
+            photoID.push({place: this.interest[i].name, ID:this.interest[i].photos[0].photo_reference})
+          }
+          console.log(marker)
+          this.buscadorService.getMarkers(marker)
+          this.buscadorService.setPhoto(photoID)
         })
     });
-
   }
-
 }
