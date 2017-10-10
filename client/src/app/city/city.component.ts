@@ -11,7 +11,7 @@ import 'rxjs'
   styleUrls: ['./city.component.css']
 })
 export class CityComponent implements OnInit {
-  interest: Array <object> = []
+  interest: any = []
   points: object
   marker: Array<any> = []
   constructor(
@@ -24,16 +24,15 @@ export class CityComponent implements OnInit {
       console.log(`El parametro recibido es: ${params['city']}`);
       console.log('esto es params', params)
       this.buscadorService.getPoint(params['city'])
-        .subscribe(p=> {
-          this.interest= p
-          this.marker.push(p[0].geometry.location)
-          console.log(this.marker)
+        .subscribe(p => {
+          this.interest = p
+          for (let i = 0; i < this.interest.length; i++) {
+            this.marker.push(this.interest[i].geometry.location)
+          } console.log(this.marker)
+
         })
     });
 
   }
 
-successFunction(){
-
-}
 }
