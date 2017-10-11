@@ -107,15 +107,14 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__loginform_new_loginform_new_component__ = __webpack_require__("../../../../../src/app/loginform-new/loginform-new.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__signupform_new_signupform_new_component__ = __webpack_require__("../../../../../src/app/signupform-new/signupform-new.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_isLoggedIn_canactivate_service__ = __webpack_require__("../../../../../src/app/services/isLoggedIn.canactivate.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_guide_service__ = __webpack_require__("../../../../../src/app/services/guide.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_point_interest_service__ = __webpack_require__("../../../../../src/app/services/point-interest.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_map_service__ = __webpack_require__("../../../../../src/app/services/map.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_buscador_service__ = __webpack_require__("../../../../../src/app/services/buscador.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24_ng2_file_upload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__routes__ = __webpack_require__("../../../../../src/app/routes.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pipes_filter_pipe__ = __webpack_require__("../../../../../src/app/pipes/filter.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_point_interest_service__ = __webpack_require__("../../../../../src/app/services/point-interest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_map_service__ = __webpack_require__("../../../../../src/app/services/map.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_buscador_service__ = __webpack_require__("../../../../../src/app/services/buscador.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng2_file_upload__ = __webpack_require__("../../../../ng2-file-upload/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng2_file_upload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_ng2_file_upload__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__routes__ = __webpack_require__("../../../../../src/app/routes.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pipes_filter_pipe__ = __webpack_require__("../../../../../src/app/pipes/filter.pipe.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -137,14 +136,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import { LoginformComponent } from './loginform/loginform.component'
 
 
 
 
 
 //services
-
 
 
 
@@ -163,16 +160,15 @@ AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
-            //LoginformComponent,
             __WEBPACK_IMPORTED_MODULE_9__index_index_component__["a" /* IndexComponent */],
             __WEBPACK_IMPORTED_MODULE_11__profile_profile_component__["a" /* ProfileComponent */],
             __WEBPACK_IMPORTED_MODULE_8__city_city_component__["a" /* CityComponent */],
             __WEBPACK_IMPORTED_MODULE_10__share_menu_menu_component__["a" /* MenuComponent */],
             __WEBPACK_IMPORTED_MODULE_13__place_details_place_details_component__["a" /* PlaceDetailsComponent */],
             __WEBPACK_IMPORTED_MODULE_12__city_list_city_list_component__["a" /* CityListComponent */],
-            __WEBPACK_IMPORTED_MODULE_24_ng2_file_upload__["FileSelectDirective"],
+            __WEBPACK_IMPORTED_MODULE_23_ng2_file_upload__["FileSelectDirective"],
             __WEBPACK_IMPORTED_MODULE_14__map_map_component__["a" /* MapComponent */],
-            __WEBPACK_IMPORTED_MODULE_26__pipes_filter_pipe__["a" /* FilterPipe */],
+            __WEBPACK_IMPORTED_MODULE_25__pipes_filter_pipe__["a" /* FilterPipe */],
             __WEBPACK_IMPORTED_MODULE_15__buscador_buscador_component__["a" /* BuscadorComponent */],
             __WEBPACK_IMPORTED_MODULE_16__loginform_new_loginform_new_component__["a" /* LoginformNewComponent */],
             __WEBPACK_IMPORTED_MODULE_17__signupform_new_signupform_new_component__["a" /* SignupformNewComponent */]
@@ -181,7 +177,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_25__routes__["a" /* routes */]),
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_24__routes__["a" /* routes */]),
             __WEBPACK_IMPORTED_MODULE_5__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_6__agm_core__["a" /* AgmCoreModule */].forRoot({
                 apiKey: 'AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E',
@@ -189,12 +185,11 @@ AppModule = __decorate([
             })
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_20__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_19__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_18__services_isLoggedIn_canactivate_service__["a" /* IsLoggedInService */],
-            __WEBPACK_IMPORTED_MODULE_19__services_guide_service__["a" /* GuideService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_point_interest_service__["a" /* PointInterestService */],
-            __WEBPACK_IMPORTED_MODULE_22__services_map_service__["a" /* MapService */],
-            __WEBPACK_IMPORTED_MODULE_23__services_buscador_service__["a" /* BuscadorService */]
+            __WEBPACK_IMPORTED_MODULE_20__services_point_interest_service__["a" /* PointInterestService */],
+            __WEBPACK_IMPORTED_MODULE_21__services_map_service__["a" /* MapService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_buscador_service__["a" /* BuscadorService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
     })
@@ -309,7 +304,6 @@ module.exports = "<p>\n  city-list works!\n</p>\n\n\n<a [routerLink]=\"['']\"> H
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_guide_service__ = __webpack_require__("../../../../../src/app/services/guide.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CityListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -322,12 +316,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 //Lista de de todas las ciudades
 
-
 var CityListComponent = (function () {
-    function CityListComponent(guideService) {
-        var _this = this;
-        this.guideService = guideService;
-        this.guideService.getList().subscribe(function (result) { return _this.guides = result; });
+    function CityListComponent() {
     }
     CityListComponent.prototype.ngOnInit = function () {
     };
@@ -339,10 +329,9 @@ CityListComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/city-list/city-list.component.html"),
         styles: [__webpack_require__("../../../../../src/app/city-list/city-list.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_guide_service__["a" /* GuideService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_guide_service__["a" /* GuideService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [])
 ], CityListComponent);
 
-var _a;
 //# sourceMappingURL=city-list.component.js.map
 
 /***/ }),
@@ -469,7 +458,6 @@ module.exports = "<div class=\"fondo\">\n  <app-buscador></app-buscador>\n</div>
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_guide_service__ = __webpack_require__("../../../../../src/app/services/guide.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndexComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -482,14 +470,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 //lista reducida de ciudades con su foto, pagina principal
 
-
 var IndexComponent = (function () {
-    function IndexComponent(guideService) {
-        this.guideService = guideService;
+    function IndexComponent() {
     }
     IndexComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.guideService.getList().subscribe(function (result) { return _this.guides = result; });
     };
     return IndexComponent;
 }());
@@ -499,10 +483,9 @@ IndexComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/index/index.component.html"),
         styles: [__webpack_require__("../../../../../src/app/index/index.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_guide_service__["a" /* GuideService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_guide_service__["a" /* GuideService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [])
 ], IndexComponent);
 
-var _a;
 //# sourceMappingURL=index.component.js.map
 
 /***/ }),
@@ -658,7 +641,7 @@ var MapComponent = (function () {
             _this.markersCity = _this.buscadorService.getMarkerToMap();
             console.log(_this.markersCity);
             //poner centro map
-        }, 2000);
+        }, 3000);
         // .subscribe(marker=> console.log(marker))
     };
     return MapComponent;
@@ -729,7 +712,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/place-details/place-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  place-details!\n</p>\n\n<a [routerLink]=\"['']\"> Home </a> <br>\n<a [routerLink]=\"['/city/:id']\">City</a>\n<div *ngFor=\"let a of arrIDs\">\n  <p>{{a.place}}</p>\n<img src=\"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU\" >\n\n</div>\n<div *ngIf= \"user\">\n  <a href=\"/guides/:id/edit/\">Editar</a>\n  <a href=\"/guides/:id /delete/\">Eliminar</a>\n</div>\n\n<app-map></app-map>\n"
+module.exports = "<p>\n  place-details!\n</p>\n\n<a [routerLink]=\"['']\"> Home </a> <br>\n<a [routerLink]=\"['/city/:id']\">City</a>\n<div *ngFor=\"let a of arrIDs\">\n  <p>{{a.place}}</p>\n<img src=\"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU\" >\n\n</div>\n<div *ngIf= \"user\">\n  <p>hola</p>\n</div>\n\n<app-map></app-map>\n"
 
 /***/ }),
 
@@ -878,7 +861,6 @@ var routes = [
     { path: 'city/list', component: __WEBPACK_IMPORTED_MODULE_1__city_list_city_list_component__["a" /* CityListComponent */] },
     { path: 'city/:city', component: __WEBPACK_IMPORTED_MODULE_0__city_city_component__["a" /* CityComponent */] },
     { path: 'city/details/placeDetails', component: __WEBPACK_IMPORTED_MODULE_3__place_details_place_details_component__["a" /* PlaceDetailsComponent */] },
-    //{ path: 'login', component: LoginformComponent },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__loginform_new_loginform_new_component__["a" /* LoginformNewComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_7__signupform_new_signupform_new_component__["a" /* SignupformNewComponent */] },
     {
@@ -1036,63 +1018,6 @@ BuscadorService = __decorate([
 
 var _a;
 //# sourceMappingURL=buscador.service.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/services/guide.service.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuideService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var BASEURL = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].BASEURL;
-var GuideService = (function () {
-    function GuideService(http) {
-        this.http = http;
-        this.options = { withCredentials: true };
-    }
-    GuideService.prototype.getList = function () {
-        return this.http.get(BASEURL + "/guides")
-            .map(function (res) { return res.json(); });
-    };
-    GuideService.prototype.get = function (id) {
-        return this.http.get(BASEURL + "/guides/" + id, this.options)
-            .map(function (res) { return res.json(); });
-    };
-    GuideService.prototype.edit = function (guide) {
-        return this.http.put(BASEURL + "/guides/" + guide.id, guide, this.options)
-            .map(function (res) { return res.json(); });
-    };
-    GuideService.prototype.remove = function (id) {
-        return this.http.delete(BASEURL + "/guides/" + id, this.options)
-            .map(function (res) { return res.json(); });
-    };
-    return GuideService;
-}());
-GuideService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
-], GuideService);
-
-var _a;
-//# sourceMappingURL=guide.service.js.map
 
 /***/ }),
 
