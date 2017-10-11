@@ -40,6 +40,6 @@ export class CityComponent implements OnInit {
         })
     })
     console.log('marker: ', marker, 'photoID: ', photoID)
-    
+
   }
 }

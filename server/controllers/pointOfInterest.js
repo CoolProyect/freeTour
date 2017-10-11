@@ -77,7 +77,7 @@ module.exports = {
     const gmaps_url = "https://maps.googleapis.com/maps/api/place/textsearch/json";
     axios.get(gmaps_url, {
         params: {
-          key: process.env.KEYGOOGLE,
+          key: 'AIzaSyD4P839qGLJs-mBgdun4r-HyQPuIC46Hms',
           query: "point of interest " + city
         }
       })
@@ -92,25 +92,43 @@ module.exports = {
         });
       })
   },
-details: (req, res, next)=>{
-  const id = req.query.place;
-  console.log('Estoy en Back. En la funcion DETAILS', id)
-  const gdetails_url= 'https://maps.googleapis.com/maps/api/place/details/json';
-  axios.get(gdetails_url, {
-    params: {
-      placeid: id,
-      key: 'AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU'
-    }
-  })
-  .then(resp => {
-    console.log(resp)
-    res.json(resp.data.result)
-  })
-  .catch(e => {
-    console.log(e);
-    res.status(500).json({
-      error: e.message
-    })
-  })
-}
+  details: (req, res, next) => {
+    const id = req.query.place;
+    let namePlace;
+    console.log('Estoy en Back. En la funcion DETAILS', id)
+    const gdetails_url = 'https://maps.googleapis.com/maps/api/place/details/json'
+    const wiki_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&format=json'
+    axios.get(gdetails_url, {
+        params: {
+          placeid: id,
+          key: process.env.KEYGOOGLEDETAILS
+        }
+      })
+      .then(resp => {
+        res.json(resp.data.result)
+        console.log('TENEMOS LA RESPUESTA DE AXIOS EN BACK', resp.data.result)
+        let namePlace = resp.data.result
+        console.log('LA CONSTANTE namePlace en el PRIMER THEN',namePlace)
+        axios.get(wiki_url, {
+            params: {
+              search: resp.data.result.name
+            }
+          }).then( r => {
+            res.json(r.data)
+            console.log('LO QUE SALE AL LLAMAR A WIKI', r.data)
+          }).catch(e => {
+           console.log('EL ERROR DE LLAMAR A WIKI', e);
+           res.status(500).json({
+             error: e.message
+           })
+      })
+       .catch(e => {
+        console.log(e);
+        res.status(500).json({
+          error: e.message
+        })
+      })
+
+  }
+)}
 };

@@ -40,5 +40,10 @@ export class BuscadorService {
     return this.http.get(`${BASEURL}/point-interest/gmaps/details/?place=${placeID}`, this.options)
     .map((res) => res.json())
   }
+// wikiDetails(details){
+//   console.log(details)
+//   return this.http.get(`https://es.wikipedia.org/w/api.php?action=opensearch&search=${details}&format=json`)
+//   .map((res)=>res.json())
+// }
 
 }

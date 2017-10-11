@@ -16,6 +16,7 @@ export class PlaceDetailsComponent implements OnInit {
   photoID: any = []
   arrIDs: Array<object>
   details: any = []
+  wiki: any
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -28,7 +29,15 @@ export class PlaceDetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log('esto es params', params)
       this.buscadorService.getDetails(params.id)
-      .subscribe(d => this.details = d)
+      .subscribe(d => {
+        this.details = d
+        console.log('get deatails del component',this.details)
+      // this.buscadorService.wikiDetails(this.details.name)
+      // .subscribe(w => {
+      //   console.log('THIS.WIKI',this.wiki)
+      //   this.wiki = w
+      // })
+    })
     })
 
   }
