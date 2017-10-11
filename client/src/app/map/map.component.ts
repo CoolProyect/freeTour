@@ -5,13 +5,12 @@ import { BuscadorService } from '../services/buscador.service'
 import { MapService } from '../services/map.service'
 import 'rxjs'
 
-interface marker {
-  nombre: string;
-  center: {
-    lat: number;
-    lng: number;
-  }
-}
+// interface marker {
+//     nombre: string;
+//     lat: number;
+//     lng: number;
+//
+// }
 
 @Component({
   selector: 'app-map',
@@ -20,14 +19,15 @@ interface marker {
 })
 
 export class MapComponent implements OnInit {
-  markers: marker[] = [{
-        nombre: 'Madrid',
-        center: {lat: 40.417123,
-        lng: -3.703565,
-      }
-  }]
-
-  markersCity;
+  // markers: marker[] = [{
+  //       nombre: 'Madrid',
+  //       lat: 40.417123,
+  //       lng: -3.703565,
+  //
+  // }]
+  lat: number;
+  lng: number;
+  markersCity:any;
   constructor(
     public buscadorService: BuscadorService,
     public mapService: MapService,
@@ -35,11 +35,13 @@ export class MapComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      // console.log(`El parametro recibido es: ${params['city']}`);
-    //   this.buscadorService.getMarker(params['city'])
-    //     .map(m => { this.markersCity = m; console.log(this.markersCity) })
-    //     .subscribe()
-     });
+    setTimeout(() => {
+      console.log("esperando")
+      this.markersCity = this.buscadorService.getMarkerToMap();
+      console.log(this.markersCity)
+     //poner centro map
+
+   }, 2000);
+      // .subscribe(marker=> console.log(marker))
   }
 }

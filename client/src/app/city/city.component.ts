@@ -10,10 +10,11 @@ import 'rxjs'
   templateUrl: './city.component.html',
   styleUrls: ['./city.component.css']
 })
+
 export class CityComponent implements OnInit {
-  interest: any = []
-  points: object;
-  //photo: Array<object> = []
+    interest: any = []
+    points: object
+
 
   constructor(
     private router: Router,
@@ -21,24 +22,23 @@ export class CityComponent implements OnInit {
     public buscadorService: BuscadorService) { }
 
   ngOnInit() {
-    let photoID = [];
+    let   marker = []
+    let photoID = []
+
     this.route.params.subscribe(params => {
       console.log(`El parametro recibido es: ${params['city']}`);
       console.log('esto es params', params)
       this.buscadorService.getPoint(params['city'])
-        .subscribe( churro => {
-          this.interest=churro
-          console.log('Vamos imprimiendo ruta a fotos =>')
-          console.log(this.interest)
-          for(let i = 0; i<this.interest.length; i++){
+        .subscribe(p => {
+          this.interest = p
+          for (let i = 0; i < this.interest.length; i++) {
+            marker.push(this.interest[i].geometry.location)
             photoID.push({place: this.interest[i].name, ID:this.interest[i].photos[0].photo_reference})
           }
-          console.log("City Component",photoID)
+          console.log(marker)
+          this.buscadorService.getMarkers(marker)
           this.buscadorService.setPhoto(photoID)
         })
-
     });
-
   }
-
 }
