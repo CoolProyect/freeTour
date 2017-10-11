@@ -21,7 +21,6 @@ export class BuscadorService {
   getMarkers(marker) {
     this.markers = marker
     console.log(this.markers)
-
   }
 
   getMarkerToMap() {
@@ -31,9 +30,15 @@ export class BuscadorService {
   setPhoto(photosID) {
     this.photo = photosID
   }
+
   getPhoto() {
     return this.photo
   }
 
+  getDetails(placeID){
+    console.log('estoy en funcion getDetails',placeID)
+    return this.http.get(`${BASEURL}/point-interest/gmaps/details/?place=${placeID}`, this.options)
+    .map((res) => res.json())
+  }
 
 }

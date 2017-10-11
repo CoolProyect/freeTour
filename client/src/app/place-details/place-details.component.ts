@@ -14,16 +14,23 @@ import 'rxjs'
 })
 export class PlaceDetailsComponent implements OnInit {
   photoID: any = []
-  arrIDs:Array<object>
+  arrIDs: Array<object>
+  details: any = []
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     public buscadorService: BuscadorService) {
-    }
+  }
 
   ngOnInit() {
     this.arrIDs = this.buscadorService.getPhoto()
-    console.log(this.arrIDs)
+    console.log('el array de los ids',this.arrIDs)
+    this.route.params.subscribe(params => {
+      console.log('esto es params', params)
+      this.buscadorService.getDetails(params.id)
+      .subscribe(d => this.details = d)
+    })
 
-    }
   }
+
+}

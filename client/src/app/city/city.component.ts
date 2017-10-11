@@ -35,10 +35,11 @@ export class CityComponent implements OnInit {
             marker.push(this.interest[i].geometry.location)
             photoID.push({place: this.interest[i].name, ID:this.interest[i].photos[0].photo_reference})
           }
-          console.log(marker)
           this.buscadorService.getMarkers(marker)
           this.buscadorService.setPhoto(photoID)
         })
-    });
+    })
+    console.log('marker: ', marker, 'photoID: ', photoID)
+    
   }
 }

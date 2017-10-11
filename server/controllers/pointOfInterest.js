@@ -92,26 +92,25 @@ module.exports = {
         });
       })
   },
-
-  marker: (req, res, next) => {
-    const markers = req.query.markers;
-    console.log(`Getting google maps data from "${lat, lng}"`)
-    const gmaps_url = "https://maps.googleapis.com/maps/api/place/textsearch/json";
-    axios.get(gmaps_url, {
-        params: {
-          key: process.env.KEYGOOGLE,
-          query: "point of interest " + city
-        }
-      })
-      .then(response => {
-        console.log(response)
-        res.json(response.data.results.geometry.location)
-      })
-      .catch(e => {
-        console.log(e);
-        res.status(500).json({
-          error: e.message
-        });
-      })
-  }
+details: (req, res, next)=>{
+  const id = req.query.place;
+  console.log('Estoy en Back. En la funcion DETAILS', id)
+  const gdetails_url= 'https://maps.googleapis.com/maps/api/place/details/json';
+  axios.get(gdetails_url, {
+    params: {
+      placeid: id,
+      key: 'AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU'
+    }
+  })
+  .then(resp => {
+    console.log(resp)
+    res.json(resp.data.result)
+  })
+  .catch(e => {
+    console.log(e);
+    res.status(500).json({
+      error: e.message
+    })
+  })
+}
 };
