@@ -15,14 +15,13 @@ export class CityComponent implements OnInit {
     interest: any = []
     points: object
 
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     public buscadorService: BuscadorService) { }
 
   ngOnInit() {
-    let   marker = []
+    let marker = []
     let photoID = []
 
     this.route.params.subscribe(params => {

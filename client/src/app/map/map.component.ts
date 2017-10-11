@@ -5,12 +5,7 @@ import { BuscadorService } from '../services/buscador.service'
 import { MapService } from '../services/map.service'
 import 'rxjs'
 
-// interface marker {
-//     nombre: string;
-//     lat: number;
-//     lng: number;
-//
-// }
+
 
 @Component({
   selector: 'app-map',
@@ -19,15 +14,11 @@ import 'rxjs'
 })
 
 export class MapComponent implements OnInit {
-  // markers: marker[] = [{
-  //       nombre: 'Madrid',
-  //       lat: 40.417123,
-  //       lng: -3.703565,
-  //
-  // }]
+
   lat: number;
   lng: number;
   markersCity:any;
+  
   constructor(
     public buscadorService: BuscadorService,
     public mapService: MapService,
@@ -39,9 +30,11 @@ export class MapComponent implements OnInit {
       console.log("esperando")
       this.markersCity = this.buscadorService.getMarkerToMap();
       console.log(this.markersCity)
-     //poner centro map
+      this.lat = this.markersCity[0].lat
+      this.lng = this.markersCity[0].lng
+
 
    }, 3000);
-      // .subscribe(marker=> console.log(marker))
+
   }
 }
