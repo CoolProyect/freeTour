@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd client
+rm -rf dist
 ng build --env=prod
 
 cd ..
