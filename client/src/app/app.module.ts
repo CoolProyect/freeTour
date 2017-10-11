@@ -13,7 +13,6 @@ import { IndexComponent } from './index/index.component'
 import { MenuComponent } from './share/menu/menu.component'
 import { ProfileComponent } from './profile/profile.component'
 import { CityListComponent } from './city-list/city-list.component'
-//import { LoginformComponent } from './loginform/loginform.component'
 import { PlaceDetailsComponent } from './place-details/place-details.component'
 import { MapComponent } from './map/map.component'
 import { BuscadorComponent } from './buscador/buscador.component'
@@ -22,7 +21,6 @@ import { SignupformNewComponent } from './signupform-new/signupform-new.componen
 
 //services
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service'
-import { GuideService } from './services/guide.service'
 import { AuthService } from './services/auth.service'
 import { PointInterestService } from './services/point-interest.service'
 import { MapService } from './services/map.service'
@@ -38,7 +36,6 @@ import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    //LoginformComponent,
     IndexComponent,
     ProfileComponent,
     CityComponent,
@@ -66,7 +63,6 @@ import { FilterPipe } from './pipes/filter.pipe';
   providers: [
     AuthService,
     IsLoggedInService,
-    GuideService,
     PointInterestService,
     MapService,
     BuscadorService

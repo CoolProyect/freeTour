@@ -41,7 +41,7 @@ export class MapComponent implements OnInit {
       console.log(this.markersCity)
      //poner centro map
 
-   }, 2000);
+   }, 3000);
       // .subscribe(marker=> console.log(marker))
   }
 }

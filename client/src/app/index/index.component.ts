@@ -1,6 +1,5 @@
 //lista reducida de ciudades con su foto, pagina principal
 import { Component, OnInit } from '@angular/core'
-import { GuideService } from '../services/guide.service'
 
 
 @Component({
@@ -10,11 +9,10 @@ import { GuideService } from '../services/guide.service'
 })
 export class IndexComponent implements OnInit {
 
-  guides;
-  constructor(public guideService: GuideService) { }
+  
+  constructor() { }
 
   ngOnInit() {
-    this.guideService.getList().subscribe(result => this.guides = result)
   }
 
 }
