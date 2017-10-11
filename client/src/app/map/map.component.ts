@@ -17,8 +17,8 @@ export class MapComponent implements OnInit {
 
   lat: number;
   lng: number;
-  markersCity:any;
-  
+  markersCity: any;
+
   constructor(
     public buscadorService: BuscadorService,
     public mapService: MapService,
@@ -34,7 +34,7 @@ export class MapComponent implements OnInit {
       this.lng = this.markersCity[0].lng
 
 
-   }, 3000);
+    }, 1000);
 
   }
 }

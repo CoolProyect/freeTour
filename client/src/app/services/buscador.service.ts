@@ -34,6 +34,7 @@ export class BuscadorService {
     return this.photo
   }
 
+ 
 
 
 }
