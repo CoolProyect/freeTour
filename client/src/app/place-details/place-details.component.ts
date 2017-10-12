@@ -39,7 +39,5 @@ export class PlaceDetailsComponent implements OnInit {
       // })
     })
     })
-
   }
-
 }
