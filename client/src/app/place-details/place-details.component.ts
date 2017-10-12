@@ -38,6 +38,7 @@ export class PlaceDetailsComponent implements OnInit {
       //   this.wiki = w
       // })
     })
+    responsiveVoice.speak("hello world");
     })
   }
 }

@@ -12,12 +12,12 @@
           </div>
           <div class="card-content">
             <span class="card-title indigo-text accent-4">{{details.name}}</span>
-            <p>Aquí ira un super parrafo sacado de WIKI mañana por la mañana</p>
+            <p>{{details.place.description| json}}</p>
           </div>
           <div class="card-tabs">
             <ul class="tabs tabs-fixed-width">
               <li class="tab"><a class="rallita indigo-text accent-4 active" href="#test4">Otros viajeros dicen...</a></li>
-              <li class="tab"><a class="rallita indigo-text accent-4" href="#test5">Horarios</a></li>
+              <li class="tab"><a class="rallita indigo-text accent-4" href="#test5">Valoración media</a></li>
               <li class="tab"><a class="rallita indigo-text accent-4" href="#test6">Más..</a></li>
             </ul>
           </div>
@@ -30,8 +30,8 @@
               <p><b>{{details.reviews[2].author_name}}</b></p>
               <p class="indigo-text accent-4">{{details.reviews[2].text}}</p>
             </div>
-            <div id="test5">Datos de cosa 2</div>
-            <div id="test6">Datos de cosa 3</div>
+            <div id="test5" class="indigo-text accent-4"><h3>{{details.rating}}/5</h3></div>
+            <div id="test6">Acceder a más info: <p> <a href="{{details.place.link}}"> <i class="material-icons medium indigo-text accent-4">fast_forward</i></a></p></div>
           </div>
         </div>
       </div>
@@ -41,6 +41,7 @@
     <app-map></app-map>
   </div>
 </div>
+<p>{{details | json}}</p>
 
 
 <!--

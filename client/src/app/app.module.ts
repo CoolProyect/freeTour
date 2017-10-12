@@ -1,11 +1,11 @@
 import { NgModule, ApplicationRef } from '@angular/core'
 import { HttpModule } from '@angular/http'
-import { FormsModule } from '@angular/forms'
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
-import { AgmCoreModule } from '@agm/core'
-
+import {AgmCoreModule} from 'angular2-google-maps/core'
+import { Directive,  Input} from '@angular/core'
 // component
 import { AppComponent } from './app.component'
 import { CityComponent } from './city/city.component'
@@ -47,7 +47,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     FilterPipe,
     BuscadorComponent,
     LoginformNewComponent,
-    SignupformNewComponent
+    SignupformNewComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E',
       libraries: ["places"]
-    })
+    }),
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

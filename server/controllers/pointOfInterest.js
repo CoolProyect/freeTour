@@ -82,22 +82,30 @@ module.exports = {
         }
       })
       .then(response => {
-        console.log(response)
+        console.log('LA RESPUESTA DE PUNTOS DE INTERES DE UNA CIUDAD DE GOOGLE', response)
         res.json(response.data.results)
-      })
-      .catch(e => {
-        console.log(e);
-        res.status(500).json({
-          error: e.message
-        });
-      })
+      }).catch(e => res.status(500).json({ error: e.message }))
   },
+
+  // details: (req, res, next) => {
+  //   const wiki_url = 'https://es.wikipedia.org/w/api.php?action=opensearch&format=json'
+  //       axios.get(wiki_url, { params: { search: "Trafalgar Square" } }).then(result => {
+  //         console.log(result.data);
+  //         const place = {
+  //           name: result.data[0],
+  //           description: result.data[2][0],
+  //           link: result.data[3][0]
+  //         }
+  //         res.status(200).json(place)
+  //         console.log('Respuesta de la mezcla con wiki ===>', resp.data.result);
+  //       }).catch( e => res.status(500).json({ error : e.message}))
+  // }
+  // ------- //
+
   details: (req, res, next) => {
     const id = req.query.place;
-    let namePlace;
     console.log('Estoy en Back. En la funcion DETAILS', id)
     const gdetails_url = 'https://maps.googleapis.com/maps/api/place/details/json'
-    const wiki_url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&format=json'
     axios.get(gdetails_url, {
         params: {
           placeid: id,
@@ -105,30 +113,23 @@ module.exports = {
         }
       })
       .then(resp => {
-        res.json(resp.data.result)
-        console.log('TENEMOS LA RESPUESTA DE AXIOS EN BACK', resp.data.result)
-        let namePlace = resp.data.result
-        console.log('LA CONSTANTE namePlace en el PRIMER THEN',namePlace)
-        axios.get(wiki_url, {
-            params: {
-              search: resp.data.result.name
-            }
-          }).then( r => {
-            res.json(r.data)
-            console.log('LO QUE SALE AL LLAMAR A WIKI', r.data)
-          }).catch(e => {
-           console.log('EL ERROR DE LLAMAR A WIKI', e);
-           res.status(500).json({
-             error: e.message
-           })
-      })
-       .catch(e => {
-        console.log(e);
-        res.status(500).json({
-          error: e.message
-        })
-      })
+        const place_name = resp.data.result.name
+        console.log("el valor de place_name", place_name);
+        const wiki_url = 'https://es.wikipedia.org/w/api.php?action=opensearch&format=json'
 
+        axios.get(wiki_url, { params: { search: place_name } }).then(result => {
+          resp.data.result.place = {
+            name: result.data[0],
+            description: result.data[2][0],
+            link: result.data[3][0]
+          }
+          // res.status(200).json(resp.data.result)
+          res.status(200).json(resp.data.result)
+          console.log('Respuesta de la mezcla con wiki ===>', resp.data.result);
+        }).catch( e => res.status(500).json({ error : e.message}))
+     }).catch(e => res.status(500).json({ error: e.message }))
   }
-)}
+
+  // ------- //
+
 };

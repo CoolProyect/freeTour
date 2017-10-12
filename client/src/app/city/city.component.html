@@ -9,7 +9,10 @@
   <div class="col s6">
     <div class="row">
       <div class="col s12 m3 l6" *ngFor="let a of interest">
-        <p class="sitio">{{a.name | json}}</p><a [routerLink]="['/city/details', a.place_id]">Details</a>
+        <!-- <a [routerLink]="['/city/details', a.place_id]">Details</a> -->
+        <div class= 'button' [routerLink]="['/city/details', a.place_id]"></div>
+        <div class="sitio">{{a.name | json}}</div>
+
       </div>
     </div>
   </div>
