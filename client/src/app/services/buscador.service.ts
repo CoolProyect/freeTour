@@ -20,10 +20,11 @@ export class BuscadorService {
 
   getMarkers(marker) {
     this.markers = marker
-    console.log(this.markers)
+    console.log('Estoy en buscador service y recibo estos markers',this.markers)
   }
 
   getMarkerToMap() {
+    console.log('Estoy en buscador y retorno estos markers', this.markers)
     return this.markers
   }
 

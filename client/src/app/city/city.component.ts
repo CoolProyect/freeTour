@@ -31,6 +31,7 @@ export class CityComponent implements OnInit {
       this.buscadorService.getPoint(params['city'])
         .subscribe(p => {
           this.interest = p
+
           for (let i = 0; i < this.interest.length; i++) {
             marker.push(this.interest[i].geometry.location)
             photoID.push({place: this.interest[i].name, ID:this.interest[i].photos[0].photo_reference})

@@ -1,7 +1,8 @@
-<a [routerLink]="['/city', details.address_components[2].long_name]">VOLVER A CIUDAD</a>
-
-<div class="row">
-  <div class="col s6 m6 l6">
+<div>
+  <a class= "waves-effect waves-light  waves-light indigo-text accent-4 " (click)="backClicked()"><i class="material-icons medium">keyboard_return</i></a>
+</div>
+<div class="row all">
+  <div class="col s12 m6 l6">
     <div class="row">
       <div class="col s12 m12">
         <div class="card">
@@ -37,22 +38,8 @@
       </div>
     </div>
   </div>
-  <div class="col s6 m6 l6">
+  <div class="col s12 m6 l6">
     <app-map></app-map>
   </div>
 </div>
-<p>{{details | json}}</p>
-
-
-<!--
-
-
-<h1>{{details.name}}</h1>
-<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU" >
-<p>Aquí ira un super parrafo sacado de WIKI mañana por la mañana</p>
-<br>
-<h4>Pagina Web del sitio</h4>
-<a href="{{details.website}}"> Ir al sitio</a>
-<br>
-
-<p>{{details | json}}</p> -->
+<!-- <p>{{details | json}}</p> -->

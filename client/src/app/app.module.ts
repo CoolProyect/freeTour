@@ -57,7 +57,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     RouterModule.forRoot(routes),
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E',
+      apiKey: 'AIzaSyAmlba1-Ybdf7lXtpToYaYrMXHtnOjWAlc',
       libraries: ["places"]
     }),
     ReactiveFormsModule

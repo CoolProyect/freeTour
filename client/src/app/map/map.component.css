@@ -1,4 +1,8 @@
 sebm-google-map {
-  height: 80vh;
-  width: 80vh;
+  position: relative;
+   padding-bottom: 75%; // This is the aspect ratio
+   height: 0;
+   overflow: hidden;
+   width: 80vh ;
+        height: 80vh ;
 }
