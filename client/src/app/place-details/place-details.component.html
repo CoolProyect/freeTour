@@ -1,16 +1,57 @@
-<p>
-  place-details!
-</p>
+<a [routerLink]="['/city', details.address_components[2].long_name]">VOLVER A CIUDAD</a>
 
-<a [routerLink]="['']"> Home </a> <br>
-<a [routerLink]="['/city/:id']">City</a>
-<div *ngFor="let a of arrIDs">
-  <p>{{a.place}}</p>
-<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU" >
+<div class="row">
+  <div class="col s6 m6 l6">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU">
+            <a class="btn-floating halfway-fab waves-effect waves-light indigo accent-4" href="{{details.website}}"><i class="material-icons">add</i></a>
 
+          </div>
+          <div class="card-content">
+            <span class="card-title indigo-text accent-4">{{details.name}}</span>
+            <p>Aquí ira un super parrafo sacado de WIKI mañana por la mañana</p>
+          </div>
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a class="rallita indigo-text accent-4 active" href="#test4">Otros viajeros dicen...</a></li>
+              <li class="tab"><a class="rallita indigo-text accent-4" href="#test5">Horarios</a></li>
+              <li class="tab"><a class="rallita indigo-text accent-4" href="#test6">Más..</a></li>
+            </ul>
+          </div>
+          <div class="card-content ">
+            <div id="test4">
+              <p><b>{{details.reviews[0].author_name}}</b></p>
+              <p class="indigo-text accent-4">{{details.reviews[0].text}}</p>
+              <p><b>{{details.reviews[1].author_name}}</b></p>
+              <p class=" indigo-text accent-4">{{details.reviews[1].text}}</p>
+              <p><b>{{details.reviews[2].author_name}}</b></p>
+              <p class="indigo-text accent-4">{{details.reviews[2].text}}</p>
+            </div>
+            <div id="test5">Datos de cosa 2</div>
+            <div id="test6">Datos de cosa 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s6 m6 l6">
+    <app-map></app-map>
+  </div>
 </div>
-<div *ngIf= "user">
-  <p>hola</p>
-</div>
 
-<app-map></app-map>
+
+<!--
+
+
+<h1>{{details.name}}</h1>
+<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU" >
+<p>Aquí ira un super parrafo sacado de WIKI mañana por la mañana</p>
+<br>
+<h4>Pagina Web del sitio</h4>
+<a href="{{details.website}}"> Ir al sitio</a>
+<br>
+
+<p>{{details | json}}</p> -->

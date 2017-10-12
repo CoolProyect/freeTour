@@ -14,7 +14,7 @@ import 'rxjs'
 export class CityComponent implements OnInit {
     interest: any = []
     points: object
-
+    ciudad: any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -27,6 +27,7 @@ export class CityComponent implements OnInit {
     this.route.params.subscribe(params => {
       console.log(`El parametro recibido es: ${params['city']}`);
       console.log('esto es params', params)
+      this.ciudad = params['city'].toUpperCase()
       this.buscadorService.getPoint(params['city'])
         .subscribe(p => {
           this.interest = p
@@ -39,5 +40,6 @@ export class CityComponent implements OnInit {
           this.buscadorService.setPhoto(photoID)
         })
     });
+    console.log('marker: ', marker, 'photoID: ', photoID)
   }
 }
