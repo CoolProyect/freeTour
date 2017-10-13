@@ -43,7 +43,7 @@ export class MapComponent implements OnInit {
       this.lng = this.markersCity[0].lng
       this.zoom = 13
 
-    }, 2000);
+    }, 3000);
 
 
 
