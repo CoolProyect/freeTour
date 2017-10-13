@@ -60,9 +60,9 @@ const routes = require('./routes/routes')
 app.use('/auth', authRoutes)
 app.use('/', routes)
 
-// app.use(function(req, res){
-//   res.sendFile(__dirname + './public/index.html')
-// })
+app.use(function(req, res){
+  res.sendFile(__dirname + './public/index.html')
+})
 app.use(function(req, res, next) {
   var err = new Error('Not Found')
   err.status = 404
