@@ -77,6 +77,8 @@ module.exports = {
     const gmaps_url = "https://maps.googleapis.com/maps/api/place/textsearch/json";
     axios.get(gmaps_url, {
         params: {
+
+
           key: 'AIzaSyD4P839qGLJs-mBgdun4r-HyQPuIC46Hms',
           query: "point of interest " + city
         }
@@ -87,20 +89,7 @@ module.exports = {
       }).catch(e => res.status(500).json({ error: e.message }))
   },
 
-  // details: (req, res, next) => {
-  //   const wiki_url = 'https://es.wikipedia.org/w/api.php?action=opensearch&format=json'
-  //       axios.get(wiki_url, { params: { search: "Trafalgar Square" } }).then(result => {
-  //         console.log(result.data);
-  //         const place = {
-  //           name: result.data[0],
-  //           description: result.data[2][0],
-  //           link: result.data[3][0]
-  //         }
-  //         res.status(200).json(place)
-  //         console.log('Respuesta de la mezcla con wiki ===>', resp.data.result);
-  //       }).catch( e => res.status(500).json({ error : e.message}))
-  // }
-  // ------- //
+
 
   details: (req, res, next) => {
     const id = req.query.place;
