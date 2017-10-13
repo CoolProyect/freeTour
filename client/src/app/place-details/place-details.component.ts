@@ -15,9 +15,9 @@ import 'rxjs'
 })
 export class PlaceDetailsComponent implements OnInit {
   photoID: any = []
-  arrIDs: Array<object>
   details: any = []
   wiki: any
+  geoobject:Array<any> = [];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -26,8 +26,6 @@ export class PlaceDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.arrIDs = this.buscadorService.getPhoto()
-    console.log('el array de los ids', this.arrIDs)
     this.route.params.subscribe(params => {
       console.log('esto es params', params)
       this.buscadorService.getDetails(params.id)
@@ -35,7 +33,8 @@ export class PlaceDetailsComponent implements OnInit {
           this.details = d
           console.log('get deatails del component', this.details)
           console.log('LOCALIZAION', this.details.geometry.location)
-          this.buscadorService.getMarkers(this.details.geometry.location)
+          this.geoobject = [{geo:this.details.geometry.location}]
+          //this.buscadorService.getMarkers(this.details.geometry.location)
         })
     })
   }

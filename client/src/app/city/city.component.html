@@ -4,22 +4,18 @@
 
 <div class="row">
 
-  <div class="col s12 m6 l6">
+  <div class="col m4">
     <!-- <div class="row"> -->
-    <div *ngFor="let a of interest">
+    <div *ngFor="let a of buscadorService.markers">
       <!-- <a [routerLink]="['/city/details', a.place_id]">Details</a> -->
-
       <div class="sitio indigo-text accent-4">{{a.name}}
-        <div class='button' [routerLink]="['/city/details', a.place_id]"></div>
+        <div class='button' [routerLink]="['/city/details', a.placeID]"></div>
       </div>
 
       <!-- </div> -->
     </div>
   </div>
-  <div class="col s12 m6 l6">
-
-    <div>
-      <app-map></app-map>
-    </div>
+  <div class="col m5" *ngIf="buscadorService.markers.length > 0">
+      <app-map [markers]="buscadorService.markers"></app-map>
   </div>
 </div>

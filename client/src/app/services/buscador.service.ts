@@ -9,31 +9,22 @@ const BASEURL: string = environment.BASEURL;
 @Injectable()
 export class BuscadorService {
   private options = { withCredentials: true }
-  markers: any
-  photo: any
+  markers: Array<any> = [];
   constructor(private http: Http) { }
  getPoint(city) {
     return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
       .map((res) => res.json())
-  }
-
-  getMarkers(marker) {
-    this.markers = marker
-    console.log('Estoy en buscador service y recibo estos markers',this.markers)
-  }
-
-  getMarkerToMap() {
-    console.log('Estoy en buscador y retorno estos markers', this.markers)
-    return this.markers
-  }
-
-  setPhoto(photosID) {
-    this.photo = photosID
-  }
-
-  getPhoto() {
-    return this.photo
-
+      .map(cityArray => {
+        cityArray.forEach(e => {
+          this.markers.push({
+            geo:e.geometry.location,
+            name: e.name,
+            photo:e.photos[0].photo_reference,
+            placeID: e.place_id
+          });
+        });
+        return this.markers;
+      })
   }
 
   getDetails(placeID) {

@@ -4,7 +4,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
-import {AgmCoreModule} from 'angular2-google-maps/core'
+import { AgmCoreModule } from '@agm/core';
 import { Directive,  Input} from '@angular/core'
 // component
 import { AppComponent } from './app.component'

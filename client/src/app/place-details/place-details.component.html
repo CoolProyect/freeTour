@@ -38,8 +38,8 @@
       </div>
     </div>
   </div>
-  <div class="col s12 m6 l6">
-    <app-map></app-map>
+  <div class="col s12 m6 l6" *ngIf="geoobject.length > 0">
+    <app-map [markers]="geoobject"></app-map>
   </div>
 </div>
 <!-- <p>{{details | json}}</p> -->
