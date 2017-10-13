@@ -82,15 +82,39 @@ module.exports = {
         }
       })
       .then(response => {
-        console.log('Response del servidor con query de la city     =>');
-        console.log(response)
-        return res.json(response.data.results)
+        console.log('LA RESPUESTA DE PUNTOS DE INTERES DE UNA CIUDAD DE GOOGLE', response)
+        res.json(response.data.results)
+      }).catch(e => res.status(500).json({ error: e.message }))
+  },
+
+
+
+  details: (req, res, next) => {
+    const id = req.query.place;
+    console.log('Estoy en Back. En la funcion DETAILS', id)
+    const gdetails_url = 'https://maps.googleapis.com/maps/api/place/details/json'
+    axios.get(gdetails_url, {
+        params: {
+          placeid: id,
+          key: process.env.KEYGOOGLEDETAILS
+        }
       })
-      .catch(e => {
-        console.log(e);
-        res.status(500).json({
-          error: e.message
-        });
-      })
+      .then(resp => {
+        const place_name = resp.data.result.name
+        console.log("el valor de place_name", place_name);
+        const wiki_url = 'https://es.wikipedia.org/w/api.php?action=opensearch&format=json'
+
+        axios.get(wiki_url, { params: { search: place_name } }).then(result => {
+          resp.data.result.place = {
+            name: result.data[0],
+            description: result.data[2][0],
+            link: result.data[3][0]
+          }
+          res.status(200).json(resp.data.result)
+          console.log('Respuesta de la mezcla con wiki ===>', resp.data.result);
+        }).catch( e => res.status(500).json({ error : e.message}))
+     }).catch(e => res.status(500).json({ error: e.message }))
   }
+
+
 };

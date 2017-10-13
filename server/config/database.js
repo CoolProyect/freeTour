@@ -3,6 +3,7 @@ const debug = require('debug')("angularauth:" + path.basename(__filename).split(
 const mongoose = require('mongoose');
 const dbURL = process.env.DBURL || 'mongodb://localhost/freeTour';
 
+mongoose.Promise = global.Promise;
 mongoose.connect(dbURL)
   .then(() => debug(`connected to database ${dbURL}`))
   .catch(e => {

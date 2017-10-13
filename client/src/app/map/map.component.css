@@ -1,4 +1,8 @@
-agm-map {
-  height: 600px;
-  width: 600px;
+sebm-google-map {
+  position: relative;
+   padding-bottom: 75%; // This is the aspect ratio
+   height: 0;
+   overflow: hidden;
+   width: 80vh ;
+        height: 80vh ;
 }

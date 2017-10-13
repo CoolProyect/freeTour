@@ -1,9 +1,11 @@
 
 <nav class="indigo accent-4">
    <div class="nav-wrapper">
-     <a href="#" class="brand-logo">Logo</a>
+     <div class="button" [routerLink]="['']"></div>
+     <a [routerLink]="['login']" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">perm_identity</i></a>
+
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <li><a [routerLink]="['city/list']"> Cities </a></li>
+       <!-- <li><a [routerLink]="['city/list']"> Cities </a></li> -->
          <a class="dropdown-button btn-floating btn-large indigo accent-4" data-activates='dropdown1'>
            <i class="large material-icons ">person</i>
          </a>

@@ -6,9 +6,9 @@
         <form>
           <div class="input-field">
             <input id="search" type="search" placeholder="¿Que te apetece conocer?" [(ngModel)]="formInfo.city" name="city" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <label class="label-icon" for="search"><i class="material-icons hide-on-small-only">search</i></label>
             <i class="material-icons">close</i>
-            <button hidden="true" (click)="buscar()" [routerLink]="['/city', ':city']">Buscar</button>
+            <button hidden="true" (click)="buscar()" class= "show-on-small btn-floating btn-large waves-effect waves-light indigo accent-4 goLeft" [routerLink]="['/city', ':city']"><i class="material-icons">search</i></button>
           </div>
         </form>
       </div>

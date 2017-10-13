@@ -1,3 +1,11 @@
-.sitio{
-  padding: 8vh;
+.button{
+  background-image: url('../images/boton.png');
+  width: 3vh;
+  height: 3vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.titulo{
+  font-family: main;
 }

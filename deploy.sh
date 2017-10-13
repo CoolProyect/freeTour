@@ -1,7 +1,8 @@
 #!/bin/bash
 
 cd client
-ng build --env=prod
+rm -rf dist
+ng build --environment=prod
 
 cd ..
 rm -rf ./server/public

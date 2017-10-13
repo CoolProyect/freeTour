@@ -1,17 +1,45 @@
-<p>
-  place-details!
-</p>
-
-<a [routerLink]="['']"> Home </a> <br>
-<a [routerLink]="['/city/:id']">City</a>
-<div *ngFor="let a of arrIDs">
-  <p>{{a.place}}</p>
-<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU" >
-
+<div>
+  <a class= "waves-effect waves-light  waves-light indigo-text accent-4 " (click)="backClicked()"><i class="material-icons medium">keyboard_return</i></a>
 </div>
-<div *ngIf= "user">
-  <a href="/guides/:id/edit/">Editar</a>
-  <a href="/guides/:id /delete/">Eliminar</a>
-</div>
+<div class="row all">
+  <div class="col s12 m6 l6">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU">
+            <a class="btn-floating halfway-fab waves-effect waves-light indigo accent-4" href="{{details.website}}"><i class="material-icons">add</i></a>
 
-<app-map></app-map>
+          </div>
+          <div class="card-content">
+            <span class="card-title indigo-text accent-4">{{details.name}}</span>
+            <p>{{details.place.description| json}}</p>
+          </div>
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab"><a class="rallita indigo-text accent-4 active" href="#test4">Otros viajeros dicen...</a></li>
+              <li class="tab"><a class="rallita indigo-text accent-4" href="#test5">Valoración media</a></li>
+              <li class="tab"><a class="rallita indigo-text accent-4" href="#test6">Más..</a></li>
+            </ul>
+          </div>
+          <div class="card-content ">
+            <div id="test4">
+              <p><b>{{details.reviews[0].author_name}}</b></p>
+              <p class="indigo-text accent-4">{{details.reviews[0].text}}</p>
+              <p><b>{{details.reviews[1].author_name}}</b></p>
+              <p class=" indigo-text accent-4">{{details.reviews[1].text}}</p>
+              <p><b>{{details.reviews[2].author_name}}</b></p>
+              <p class="indigo-text accent-4">{{details.reviews[2].text}}</p>
+            </div>
+            <div id="test5" class="indigo-text accent-4"><h3>{{details.rating}}/5</h3></div>
+            <div id="test6">Acceder a más info: <p> <a href="{{details.place.link}}"> <i class="material-icons medium indigo-text accent-4">fast_forward</i></a></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6 l6">
+    <app-map></app-map>
+  </div>
+</div>
+<!-- <p>{{details | json}}</p> -->

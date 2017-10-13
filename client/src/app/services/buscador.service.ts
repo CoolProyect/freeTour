@@ -1,7 +1,7 @@
+import { Http } from '@angular/http'
 import { Injectable } from '@angular/core'
+import 'rxjs'
 import { Observable } from 'rxjs/Observable'
-import { Http } from '@angular/http';
-import 'rxjs';
 import { environment } from '../../environments/environment'
 
 const BASEURL: string = environment.BASEURL;
@@ -19,20 +19,34 @@ export class BuscadorService {
 
   getMarkers(marker) {
     this.markers = marker
-    console.log(this.markers)
-
+    console.log('Estoy en buscador service y recibo estos markers',this.markers)
   }
 
   getMarkerToMap() {
+    console.log('Estoy en buscador y retorno estos markers', this.markers)
     return this.markers
   }
 
   setPhoto(photosID) {
     this.photo = photosID
   }
+
   getPhoto() {
     return this.photo
+
   }
+
+  getDetails(placeID) {
+    console.log('estoy en funcion getDetails', placeID)
+    return this.http.get(`${BASEURL}/point-interest/gmaps/details/?place=${placeID}`, this.options)
+      .map((res) => res.json())
+  }
+
+// wikiDetails(details){
+//   console.log(details)
+//   return this.http.get(`https://es.wikipedia.org/w/api.php?action=opensearch&search=${details}&format=json`)
+//   .map((res)=>res.json())
+// }
 
 
 }

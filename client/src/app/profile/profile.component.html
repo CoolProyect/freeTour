@@ -1,22 +1,27 @@
-<a [routerLink]="['']"> Home </a> <br>
-<a [routerLink]="['/city']"> City List </a> <br>
-<a [routerLink]="['']"> Mis Rutas </a>
 
-<div *ngIf="!user">
-  <h2>NO USER LOGGED IN</h2>
+
+<div class="row">
+  <div class="col l4"></div>
+  <div class="col s12 m6 l4 xl4 ">
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="images/office.jpg">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">Bienvenid@ {{user.username}}<i class="material-icons right">more_vert</i></span>
+        <h5><a class="center-align" [routerLink]="['/city', newCity]">Te proponemos... </a><i class="medium material-icons">flight_takeoff</i></h5>
+      </div>
+      <div class="card-reveal">
+        <p>Sé bienvenido a POCKET TOUR, la aplicación que viaja contigo a cualquier parte del mundo. Así podrás conocer cualquier ciudad desde tu casa, o mientras estás de viaje.</p>
+        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+
+      </div>
+    </div>
+
+  </div>
 </div>
+<app-buscador class= "busca"></app-buscador>
 
 
-<div *ngIf="user">
-  <h2>
-    Hola {{user.username}}
-  </h2>
-  <h2> You are now logged in as {{ user.username }}!! </h2>
-  <p> Here's the user object </p>
-  <pre> {{ user | json }} </pre>
-  <app-buscador></app-buscador>
-  <a [routerLink]="['']"> Home </a> <br>
 
-
-  <button (click)="auth.logout().subscribe()"> logout </button>
-</div>
+<!-- <button (click)="auth.logout().subscribe()" class="btn-floating btn-large waves-effect indigo accent-4"> <i class="material-icons">clear</i> </button> -->
