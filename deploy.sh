@@ -2,7 +2,7 @@
 
 cd client
 rm -rf dist
-ng build --env=prod
+ng build --environment=prod
 
 cd ..
 rm -rf ./server/public

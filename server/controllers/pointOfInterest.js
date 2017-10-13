@@ -79,7 +79,7 @@ module.exports = {
         params: {
 
 
-          key: 'AIzaSyD4P839qGLJs-mBgdun4r-HyQPuIC46Hms',
+          key: process.env.KEYGOOGLE,
           query: "point of interest " + city
         }
       })
@@ -112,13 +112,11 @@ module.exports = {
             description: result.data[2][0],
             link: result.data[3][0]
           }
-          // res.status(200).json(resp.data.result)
           res.status(200).json(resp.data.result)
           console.log('Respuesta de la mezcla con wiki ===>', resp.data.result);
         }).catch( e => res.status(500).json({ error : e.message}))
      }).catch(e => res.status(500).json({ error: e.message }))
   }
 
-  // ------- //
 
 };
