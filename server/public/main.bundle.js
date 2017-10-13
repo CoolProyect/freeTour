@@ -21,7 +21,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n  body {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    min-height: 100vh;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n  }\n\n  main {\n    -webkit-box-flex: 1;\n        -ms-flex: 1 0 auto;\n            flex: 1 0 auto;\n  }\n", ""]);
 
 // exports
 
@@ -94,7 +94,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__ = __webpack_require__("../../../../angular2-google-maps/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__city_city_component__ = __webpack_require__("../../../../../src/app/city/city.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__index_index_component__ = __webpack_require__("../../../../../src/app/index/index.component.ts");
@@ -171,7 +172,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_25__pipes_filter_pipe__["a" /* FilterPipe */],
             __WEBPACK_IMPORTED_MODULE_15__buscador_buscador_component__["a" /* BuscadorComponent */],
             __WEBPACK_IMPORTED_MODULE_16__loginform_new_loginform_new_component__["a" /* LoginformNewComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__signupform_new_signupform_new_component__["a" /* SignupformNewComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__signupform_new_signupform_new_component__["a" /* SignupformNewComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["a" /* BrowserModule */],
@@ -179,10 +180,11 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_24__routes__["a" /* routes */]),
             __WEBPACK_IMPORTED_MODULE_5__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_6__agm_core__["a" /* AgmCoreModule */].forRoot({
-                apiKey: 'AIzaSyDb2yy7qBIBYrlXY3J_XquVrC0xLmtiT3E',
+            __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__["AgmCoreModule"].forRoot({
+                apiKey: 'AIzaSyAmlba1-Ybdf7lXtpToYaYrMXHtnOjWAlc',
                 libraries: ["places"]
-            })
+            }),
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* ReactiveFormsModule */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_19__services_auth_service__["a" /* AuthService */],
@@ -207,7 +209,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".input-field input[type=search]:focus {\n     border-bottom: 1px solid #000;\n     box-shadow: 0 1px 0 0 #000;\n   }\n\n\n   nav {\n     margin-top: 29vh\n   }\n", ""]);
+exports.push([module.i, ".input-field input[type=search]:focus {\n     border-bottom: 1px solid #000;\n     box-shadow: 0 1px 0 0 #000;\n   }\n\n\n   nav {\n     margin-top: 29vh\n   }\n.goLeft{\n  margin-left: 20vh;\n}\n", ""]);
 
 // exports
 
@@ -220,7 +222,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/buscador/buscador.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col l4\"></div>\n  <div class=\"col s12 m6 l4 xl4 \">\n    <nav>\n      <div class=\"nav-wrapper indigo accent-4\">\n        <form>\n          <div class=\"input-field\">\n            <input id=\"search\" type=\"search\" placeholder=\"¿Que te apetece conocer?\" [(ngModel)]=\"formInfo.city\" name=\"city\" required>\n            <label class=\"label-icon\" for=\"search\"><i class=\"material-icons\">search</i></label>\n            <i class=\"material-icons\">close</i>\n            <button hidden=\"true\" (click)=\"buscar()\" [routerLink]=\"['/city', ':city']\">Buscar</button>\n          </div>\n        </form>\n      </div>\n    </nav>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col l4\"></div>\n  <div class=\"col s12 m6 l4 xl4 \">\n    <nav>\n      <div class=\"nav-wrapper indigo accent-4\">\n        <form>\n          <div class=\"input-field\">\n            <input id=\"search\" type=\"search\" placeholder=\"¿Que te apetece conocer?\" [(ngModel)]=\"formInfo.city\" name=\"city\" required>\n            <label class=\"label-icon\" for=\"search\"><i class=\"material-icons hide-on-small-only\">search</i></label>\n            <i class=\"material-icons\">close</i>\n            <button hidden=\"true\" (click)=\"buscar()\" class= \"show-on-small btn-floating btn-large waves-effect waves-light indigo accent-4 goLeft\" [routerLink]=\"['/city', ':city']\"><i class=\"material-icons\">search</i></button>\n          </div>\n        </form>\n      </div>\n    </nav>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -344,7 +346,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".sitio{\n  padding: 8vh;\n}\n", ""]);
+exports.push([module.i, ".button{\n  background-image: url(" + __webpack_require__("../../../../../src/app/images/boton.png") + ");\n  width: 3vh;\n  height: 3vh;\n  background-size: contain;\n  background-repeat: no-repeat;\n  display: inline-block;\n}\n.titulo{\n  font-family: main;\n}\n", ""]);
 
 // exports
 
@@ -357,7 +359,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/city/city.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h2 class=\"center-align\">hola caracola</h2>\n</div>\n\n<div class=\"row\">\n  <div class=\"col s6\">\n    <app-map></app-map>\n  </div>\n  <div class=\"col s6\">\n    <div class=\"row\">\n      <div class=\"col s12 m3 l6\" *ngFor=\"let a of interest\">\n        <span class=\"sitio\">{{a.name | json}}</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n<a [routerLink]=\"['']\"> Home </a> <br>\n<a [routerLink]=\"['/city/details/placeDetails']\"> Places Details </a>\n"
+module.exports = "<div>\n  <h3 class=\"center-align titulo indigo-text accent-4\">Descubre  {{ciudad}}</h3>\n</div>\n\n<div class=\"row\">\n\n  <div class=\"col s12 m6 l6\">\n    <!-- <div class=\"row\"> -->\n    <div *ngFor=\"let a of interest\">\n      <!-- <a [routerLink]=\"['/city/details', a.place_id]\">Details</a> -->\n\n      <div class=\"sitio indigo-text accent-4\">{{a.name}}\n        <div class='button' [routerLink]=\"['/city/details', a.place_id]\"></div>\n      </div>\n\n      <!-- </div> -->\n    </div>\n  </div>\n  <div class=\"col s12 m6 l6\">\n\n    <div>\n      <app-map></app-map>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -399,6 +401,7 @@ var CityComponent = (function () {
         this.route.params.subscribe(function (params) {
             console.log("El parametro recibido es: " + params['city']);
             console.log('esto es params', params);
+            _this.ciudad = params['city'].toUpperCase();
             _this.buscadorService.getPoint(params['city'])
                 .subscribe(function (p) {
                 _this.interest = p;
@@ -406,11 +409,11 @@ var CityComponent = (function () {
                     marker.push(_this.interest[i].geometry.location);
                     photoID.push({ place: _this.interest[i].name, ID: _this.interest[i].photos[0].photo_reference });
                 }
-                console.log(marker);
                 _this.buscadorService.getMarkers(marker);
                 _this.buscadorService.setPhoto(photoID);
             });
         });
+        console.log('marker: ', marker, 'photoID: ', photoID);
     };
     return CityComponent;
 }());
@@ -425,6 +428,20 @@ CityComponent = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=city.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/images/boton.png":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ "../../../../../src/app/images/logo.png":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "logo.e35022381981599d3c00.png";
 
 /***/ }),
 
@@ -511,7 +528,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/loginform-new/loginform-new.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col l4\"></div>\n  <div class=\"col s12 m6 l4 xl4 \">\n    <form>\n      <div class=\"card horizontal center-align\">\n        <div class=\"card-stacked\">\n          <div class=\"card-content\">\n            <div class=\"input-field\">\n              <label class=\"indigo-text accent-4\" for=\"username\"> Username </label>\n              <input class=\"indigo-text accent-4\" type=\"text\" [(ngModel)]=\"formInfo.username\" name=\"username\" />\n            </div><br>\n            <div class=\"input-field\">\n              <label class=\"indigo-text accent-4\" for=\"password\"> Password </label>\n              <input class=\"indigo-text accent-4\" type=\"password\" [(ngModel)]=\"formInfo.password\" name=\"password\" />\n            </div>\n            <div class=\"card-action\">\n              <button class=\"waves-effect btn indigo accent-4\" (click)=\"login()\" [routerLink]=\"['/user']\"> LOGIN </button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col l4\"></div>\n  <div class=\"col s12 m6 l4 xl4 \">\n    <form>\n      <div class=\"card horizontal center-align\">\n        <div class=\"card-stacked\">\n          <div class=\"card-content\">\n            <div class=\"input-field\">\n              <label class=\"indigo-text accent-4\" for=\"username\"> Username </label>\n              <input class=\"indigo-text accent-4\" type=\"text\" [(ngModel)]=\"formInfo.username\" name=\"username\" />\n            </div><br>\n            <div class=\"input-field\">\n              <label class=\"indigo-text accent-4\" for=\"password\"> Password </label>\n              <input class=\"indigo-text accent-4\" type=\"password\" [(ngModel)]=\"formInfo.password\" name=\"password\" />\n            </div>\n            <div class=\"card-action\">\n              <button class=\"waves-effect btn indigo accent-4\" (click)=\"login()\" [routerLink]=\"['/user']\"> LOGIN </button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>\n<div class= \"show-on-small\">\n<div class=\"card horizontal center-align \">\n  <div class=\"card-stacked\">\n    <div class=\"card-content\">\n      <div class=\"show-on-small\"> ¿No tienes cuenta?</div>\n      <div class=\"card-action\">\n        <a [routerLink]=\"['/signup']\" class=\"btn btn-floating btn-small indigo accent-4 pulse\" ><i class=\"material-icons\">add</i></a>\n      </div>\n    </div>\n</div>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -579,7 +596,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "agm-map {\n  height: 600px;\n  width: 600px;\n}\n", ""]);
+exports.push([module.i, "sebm-google-map {\n  position: relative;\n   padding-bottom: 75%; // This is the aspect ratio\n   height: 0;\n   overflow: hidden;\n   width: 80vh ;\n        height: 80vh ;\n}\n", ""]);
 
 // exports
 
@@ -592,7 +609,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<agm-map [latitude]=\"lat\" [longitude]=\"lng\">\n  <agm-marker *ngFor = \"let m of markersCity\"\n\n  [latitude]=\"m.lat\" [longitude]=\"m.lng\">\n\n  </agm-marker>\n</agm-map>\n"
+module.exports = "\n <sebm-google-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n    <sebm-google-map-marker *ngFor = \"let m of markersCity\"\n          [latitude]=\"m.lat\" [longitude]=\"m.lng\">\n      <!-- <sebm-google-map-directions\n      [origin]=\"origin\" [destination]=\"destination\" [waypoints]=\"waypoints\">\n      </sebm-google-map-directions> -->\n    </sebm-google-map-marker>\n</sebm-google-map>\n"
 
 /***/ }),
 
@@ -621,12 +638,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// interface marker {
-//     nombre: string;
-//     lat: number;
-//     lng: number;
-//
-// }
+
 var MapComponent = (function () {
     function MapComponent(buscadorService, mapService, route, router) {
         this.buscadorService = buscadorService;
@@ -640,17 +652,29 @@ var MapComponent = (function () {
             console.log("esperando");
             _this.markersCity = _this.buscadorService.getMarkerToMap();
             console.log(_this.markersCity);
-            //poner centro map
+            _this.lat = _this.markersCity[0].lat;
+            _this.lng = _this.markersCity[0].lng;
+            _this.zoom = 13;
         }, 3000);
-        // .subscribe(marker=> console.log(marker))
     };
     return MapComponent;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], MapComponent.prototype, "origin", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], MapComponent.prototype, "destination", void 0);
 MapComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-map',
         template: __webpack_require__("../../../../../src/app/map/map.component.html"),
         styles: [__webpack_require__("../../../../../src/app/map/map.component.css")],
+    }),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+        selector: 'sebm-google-map-directions'
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_map_service__["a" /* MapService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_map_service__["a" /* MapService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
 ], MapComponent);
@@ -699,7 +723,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".rallita {\n    border-bottom: 1px solid #000;\n    box-shadow: 0 1px 0 0 #000;\n  }\n.all{\n  padding-top: 10vh;\n}\n", ""]);
 
 // exports
 
@@ -712,7 +736,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/place-details/place-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  place-details!\n</p>\n\n<a [routerLink]=\"['']\"> Home </a> <br>\n<a [routerLink]=\"['/city/:id']\">City</a>\n<div *ngFor=\"let a of arrIDs\">\n  <p>{{a.place}}</p>\n<img src=\"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{a.ID}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU\" >\n\n</div>\n<div *ngIf= \"user\">\n  <p>hola</p>\n</div>\n\n<app-map></app-map>\n"
+module.exports = "<div>\n  <a class= \"waves-effect waves-light  waves-light indigo-text accent-4 \" (click)=\"backClicked()\"><i class=\"material-icons medium\">keyboard_return</i></a>\n</div>\n<div class=\"row all\">\n  <div class=\"col s12 m6 l6\">\n    <div class=\"row\">\n      <div class=\"col s12 m12\">\n        <div class=\"card\">\n          <div class=\"card-image\">\n            <img src=\"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU\">\n            <a class=\"btn-floating halfway-fab waves-effect waves-light indigo accent-4\" href=\"{{details.website}}\"><i class=\"material-icons\">add</i></a>\n\n          </div>\n          <div class=\"card-content\">\n            <span class=\"card-title indigo-text accent-4\">{{details.name}}</span>\n            <p>{{details.place.description| json}}</p>\n          </div>\n          <div class=\"card-tabs\">\n            <ul class=\"tabs tabs-fixed-width\">\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4 active\" href=\"#test4\">Otros viajeros dicen...</a></li>\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4\" href=\"#test5\">Valoración media</a></li>\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4\" href=\"#test6\">Más..</a></li>\n            </ul>\n          </div>\n          <div class=\"card-content \">\n            <div id=\"test4\">\n              <p><b>{{details.reviews[0].author_name}}</b></p>\n              <p class=\"indigo-text accent-4\">{{details.reviews[0].text}}</p>\n              <p><b>{{details.reviews[1].author_name}}</b></p>\n              <p class=\" indigo-text accent-4\">{{details.reviews[1].text}}</p>\n              <p><b>{{details.reviews[2].author_name}}</b></p>\n              <p class=\"indigo-text accent-4\">{{details.reviews[2].text}}</p>\n            </div>\n            <div id=\"test5\" class=\"indigo-text accent-4\"><h3>{{details.rating}}/5</h3></div>\n            <div id=\"test6\">Acceder a más info: <p> <a href=\"{{details.place.link}}\"> <i class=\"material-icons medium indigo-text accent-4\">fast_forward</i></a></p></div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s12 m6 l6\">\n    <app-map></app-map>\n  </div>\n</div>\n<!-- <p>{{details | json}}</p> -->\n"
 
 /***/ }),
 
@@ -723,8 +747,9 @@ module.exports = "<p>\n  place-details!\n</p>\n\n<a [routerLink]=\"['']\"> Home 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__ = __webpack_require__("../../../../../src/app/services/buscador.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlaceDetailsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -740,16 +765,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PlaceDetailsComponent = (function () {
-    function PlaceDetailsComponent(router, route, buscadorService) {
+    function PlaceDetailsComponent(router, route, buscadorService, _location) {
         this.router = router;
         this.route = route;
         this.buscadorService = buscadorService;
+        this._location = _location;
         this.photoID = [];
+        this.details = [];
     }
     PlaceDetailsComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.arrIDs = this.buscadorService.getPhoto();
-        console.log(this.arrIDs);
+        console.log('el array de los ids', this.arrIDs);
+        this.route.params.subscribe(function (params) {
+            console.log('esto es params', params);
+            _this.buscadorService.getDetails(params.id)
+                .subscribe(function (d) {
+                _this.details = d;
+                console.log('get deatails del component', _this.details);
+                console.log('LOCALIZAION', _this.details.geometry.location);
+                _this.buscadorService.getMarkers(_this.details.geometry.location);
+            });
+        });
+    };
+    PlaceDetailsComponent.prototype.backClicked = function () {
+        this._location.back();
     };
     return PlaceDetailsComponent;
 }());
@@ -757,12 +799,12 @@ PlaceDetailsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-place-details',
         template: __webpack_require__("../../../../../src/app/place-details/place-details.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/place-details/place-details.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/place-details/place-details.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["Location"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["Location"]) === "function" && _d || Object])
 ], PlaceDetailsComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=place-details.component.js.map
 
 /***/ }),
@@ -775,7 +817,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".row{\n  margin-top: 12vh;\n}\n", ""]);
 
 // exports
 
@@ -788,7 +830,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<a [routerLink]=\"['']\"> Home </a> <br>\n<a [routerLink]=\"['/city']\"> City List </a> <br>\n<a [routerLink]=\"['']\"> Mis Rutas </a>\n\n<div *ngIf=\"!user\">\n  <h2>NO USER LOGGED IN</h2>\n</div>\n\n\n<div *ngIf=\"user\">\n  <h2>\n    Hola {{user.username}}\n  </h2>\n  <h2> You are now logged in as {{ user.username }}!! </h2>\n  <p> Here's the user object </p>\n  <pre> {{ user | json }} </pre>\n  <app-buscador></app-buscador>\n  <a [routerLink]=\"['']\"> Home </a> <br>\n\n\n  <button (click)=\"auth.logout().subscribe()\"> logout </button>\n</div>\n"
+module.exports = "\n\n<div class=\"row\">\n  <div class=\"col l4\"></div>\n  <div class=\"col s12 m6 l4 xl4 \">\n    <div class=\"card\">\n      <div class=\"card-image waves-effect waves-block waves-light\">\n        <img class=\"activator\" src=\"images/office.jpg\">\n      </div>\n      <div class=\"card-content\">\n        <span class=\"card-title activator grey-text text-darken-4\">Bienvenid@ {{user.username}}<i class=\"material-icons right\">more_vert</i></span>\n        <h5><a class=\"center-align\" [routerLink]=\"['/city', newCity]\">Te proponemos... </a><i class=\"medium material-icons\">flight_takeoff</i></h5>\n      </div>\n      <div class=\"card-reveal\">\n        <p>Sé bienvenido a POCKET TOUR, la aplicación que viaja contigo a cualquier parte del mundo. Así podrás conocer cualquier ciudad desde tu casa, o mientras estás de viaje.</p>\n        <span class=\"card-title grey-text text-darken-4\"><i class=\"material-icons right\">close</i></span>\n\n      </div>\n    </div>\n\n  </div>\n</div>\n<app-buscador class= \"busca\"></app-buscador>\n\n\n\n<!-- <button (click)=\"auth.logout().subscribe()\" class=\"btn-floating btn-large waves-effect indigo accent-4\"> <i class=\"material-icons\">clear</i> </button> -->\n"
 
 /***/ }),
 
@@ -818,6 +860,13 @@ var ProfileComponent = (function () {
         this.auth.getLoginEventEmitter().subscribe(function (user) { return _this.user = user; });
     }
     ProfileComponent.prototype.ngOnInit = function () {
+        var city = ['berlin', 'dublin', 'roma', 'tallin', 'helsinki', 'miami', 'cartgena de indias', 'cancun', 'puabla de almenara', 'lisboa', 'praga', 'conpenhague', 'barcelona', 'amsterdam'];
+        console.log(city.length);
+        var long = city.length;
+        var num = Math.trunc(Math.random() * long);
+        console.log(num);
+        this.newCity = city[num];
+        console.log('NEW CITY', this.newCity);
     };
     return ProfileComponent;
 }());
@@ -860,7 +909,7 @@ var routes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_2__index_index_component__["a" /* IndexComponent */] },
     { path: 'city/list', component: __WEBPACK_IMPORTED_MODULE_1__city_list_city_list_component__["a" /* CityListComponent */] },
     { path: 'city/:city', component: __WEBPACK_IMPORTED_MODULE_0__city_city_component__["a" /* CityComponent */] },
-    { path: 'city/details/placeDetails', component: __WEBPACK_IMPORTED_MODULE_3__place_details_place_details_component__["a" /* PlaceDetailsComponent */] },
+    { path: 'city/details/:id', component: __WEBPACK_IMPORTED_MODULE_3__place_details_place_details_component__["a" /* PlaceDetailsComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_6__loginform_new_loginform_new_component__["a" /* LoginformNewComponent */] },
     { path: 'signup', component: __WEBPACK_IMPORTED_MODULE_7__signupform_new_signupform_new_component__["a" /* SignupformNewComponent */] },
     {
@@ -967,8 +1016,8 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
@@ -998,9 +1047,10 @@ var BuscadorService = (function () {
     };
     BuscadorService.prototype.getMarkers = function (marker) {
         this.markers = marker;
-        console.log(this.markers);
+        console.log('Estoy en buscador service y recibo estos markers', this.markers);
     };
     BuscadorService.prototype.getMarkerToMap = function () {
+        console.log('Estoy en buscador y retorno estos markers', this.markers);
         return this.markers;
     };
     BuscadorService.prototype.setPhoto = function (photosID) {
@@ -1009,11 +1059,16 @@ var BuscadorService = (function () {
     BuscadorService.prototype.getPhoto = function () {
         return this.photo;
     };
+    BuscadorService.prototype.getDetails = function (placeID) {
+        console.log('estoy en funcion getDetails', placeID);
+        return this.http.get(BASEURL + "/point-interest/gmaps/details/?place=" + placeID, this.options)
+            .map(function (res) { return res.json(); });
+    };
     return BuscadorService;
 }());
 BuscadorService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], BuscadorService);
 
 var _a;
@@ -1133,22 +1188,6 @@ var PointInterestService = (function () {
         this.http = http;
         this.options = { withCredentials: true };
     }
-    PointInterestService.prototype.getList = function () {
-        return this.http.get(BASEURL + "/pointInterest", this.options)
-            .map(function (res) { return res.json(); });
-    };
-    PointInterestService.prototype.get = function (id) {
-        return this.http.get(BASEURL + "/pointInterest/" + id, this.options)
-            .map(function (res) { return res.json(); });
-    };
-    PointInterestService.prototype.edit = function (pointInterest) {
-        return this.http.put(BASEURL + "/pointInterest/" + pointInterest.id, pointInterest, this.options)
-            .map(function (res) { return res.json(); });
-    };
-    PointInterestService.prototype.remove = function (id) {
-        return this.http.delete(BASEURL + "/pointInterest/" + id, this.options)
-            .map(function (res) { return res.json(); });
-    };
     return PointInterestService;
 }());
 PointInterestService = __decorate([
@@ -1169,7 +1208,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\n", ""]);
+exports.push([module.i, ".button{\n  background-image: url(" + __webpack_require__("../../../../../src/app/images/logo.png") + ");\n  width: 11vh;\n  height: 11vh;\n  background-size: contain;\n  background-repeat: no-repeat;\n  display: inline-block;\n}\n", ""]);
 
 // exports
 
@@ -1182,7 +1221,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/share/menu/menu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<nav class=\"indigo accent-4\">\n   <div class=\"nav-wrapper\">\n     <a href=\"#\" class=\"brand-logo\">Logo</a>\n     <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n       <li><a [routerLink]=\"['city/list']\"> Cities </a></li>\n         <a class=\"dropdown-button btn-floating btn-large indigo accent-4\" data-activates='dropdown1'>\n           <i class=\"large material-icons \">person</i>\n         </a>\n         <ul id='dropdown1' class='dropdown-content'>\n           <li><a class=\"indigo-text accent-4\" [routerLink]=\"['login']\">Login</a></li>\n           <li><a class=\"indigo-text accent-4\" [routerLink]=\"['signup']\">Signup</a></li>\n     </ul>\n        </ul>\n   </div>\n </nav>\n"
+module.exports = "\n<nav class=\"indigo accent-4\">\n   <div class=\"nav-wrapper\">\n     <div class=\"button\" [routerLink]=\"['']\"></div>\n     <a [routerLink]=\"['login']\" data-activates=\"mobile-demo\" class=\"button-collapse right\"><i class=\"material-icons\">perm_identity</i></a>\n\n     <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n       <!-- <li><a [routerLink]=\"['city/list']\"> Cities </a></li> -->\n         <a class=\"dropdown-button btn-floating btn-large indigo accent-4\" data-activates='dropdown1'>\n           <i class=\"large material-icons \">person</i>\n         </a>\n         <ul id='dropdown1' class='dropdown-content'>\n           <li><a class=\"indigo-text accent-4\" [routerLink]=\"['login']\">Login</a></li>\n           <li><a class=\"indigo-text accent-4\" [routerLink]=\"['signup']\">Signup</a></li>\n     </ul>\n        </ul>\n   </div>\n </nav>\n"
 
 /***/ }),
 
@@ -1314,8 +1353,8 @@ var _a;
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 // The file contents for the current environment will overwrite these during build.
 var environment = {
-    production: true,
-    BASEURL: ''
+    production: false,
+    BASEURL: 'http://localhost:3000'
 };
 //# sourceMappingURL=environment.js.map
 
