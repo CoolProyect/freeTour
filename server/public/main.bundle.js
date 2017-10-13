@@ -94,8 +94,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__ = __webpack_require__("../../../../angular2-google-maps/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__city_city_component__ = __webpack_require__("../../../../../src/app/city/city.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__index_index_component__ = __webpack_require__("../../../../../src/app/index/index.component.ts");
@@ -180,7 +179,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_24__routes__["a" /* routes */]),
             __WEBPACK_IMPORTED_MODULE_5__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_6_angular2_google_maps_core__["AgmCoreModule"].forRoot({
+            __WEBPACK_IMPORTED_MODULE_6__agm_core__["a" /* AgmCoreModule */].forRoot({
                 apiKey: 'AIzaSyAmlba1-Ybdf7lXtpToYaYrMXHtnOjWAlc',
                 libraries: ["places"]
             }),
@@ -359,7 +358,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/city/city.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <h3 class=\"center-align titulo indigo-text accent-4\">Descubre  {{ciudad}}</h3>\n</div>\n\n<div class=\"row\">\n\n  <div class=\"col s12 m6 l6\">\n    <!-- <div class=\"row\"> -->\n    <div *ngFor=\"let a of interest\">\n      <!-- <a [routerLink]=\"['/city/details', a.place_id]\">Details</a> -->\n\n      <div class=\"sitio indigo-text accent-4\">{{a.name}}\n        <div class='button' [routerLink]=\"['/city/details', a.place_id]\"></div>\n      </div>\n\n      <!-- </div> -->\n    </div>\n  </div>\n  <div class=\"col s12 m6 l6\">\n\n    <div>\n      <app-map></app-map>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div>\n  <h3 class=\"center-align titulo indigo-text accent-4\">Descubre  {{ciudad}}</h3>\n</div>\n\n<div class=\"row\">\n\n  <div class=\"col m4\">\n    <!-- <div class=\"row\"> -->\n    <div *ngFor=\"let a of buscadorService.markers\">\n      <!-- <a [routerLink]=\"['/city/details', a.place_id]\">Details</a> -->\n      <div class=\"sitio indigo-text accent-4\">{{a.name}}\n        <div class='button' [routerLink]=\"['/city/details', a.placeID]\"></div>\n      </div>\n\n      <!-- </div> -->\n    </div>\n  </div>\n  <div class=\"col m5\" *ngIf=\"buscadorService.markers.length > 0\">\n      <app-map [markers]=\"buscadorService.markers\"></app-map>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -392,28 +391,16 @@ var CityComponent = (function () {
         this.router = router;
         this.route = route;
         this.buscadorService = buscadorService;
-        this.interest = [];
+        this.mapReady = false;
     }
     CityComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var marker = [];
-        var photoID = [];
         this.route.params.subscribe(function (params) {
             console.log("El parametro recibido es: " + params['city']);
             console.log('esto es params', params);
             _this.ciudad = params['city'].toUpperCase();
-            _this.buscadorService.getPoint(params['city'])
-                .subscribe(function (p) {
-                _this.interest = p;
-                for (var i = 0; i < _this.interest.length; i++) {
-                    marker.push(_this.interest[i].geometry.location);
-                    photoID.push({ place: _this.interest[i].name, ID: _this.interest[i].photos[0].photo_reference });
-                }
-                _this.buscadorService.getMarkers(marker);
-                _this.buscadorService.setPhoto(photoID);
-            });
+            _this.buscadorService.getPoint(params['city']).subscribe();
         });
-        console.log('marker: ', marker, 'photoID: ', photoID);
     };
     return CityComponent;
 }());
@@ -596,7 +583,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "sebm-google-map {\n  position: relative;\n   padding-bottom: 75%; // This is the aspect ratio\n   height: 0;\n   overflow: hidden;\n   width: 80vh ;\n        height: 80vh ;\n}\n", ""]);
+exports.push([module.i, "agm-map{\n  position: relative;\n   padding-bottom: 75%; // This is the aspect ratio\n   height: 0;\n   overflow: hidden;\n   width: 80vh ;\n        height: 80vh ;\n}\n", ""]);
 
 // exports
 
@@ -609,7 +596,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n <sebm-google-map [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n    <sebm-google-map-marker *ngFor = \"let m of markersCity\"\n          [latitude]=\"m.lat\" [longitude]=\"m.lng\">\n      <!-- <sebm-google-map-directions\n      [origin]=\"origin\" [destination]=\"destination\" [waypoints]=\"waypoints\">\n      </sebm-google-map-directions> -->\n    </sebm-google-map-marker>\n</sebm-google-map>\n"
+module.exports = "<agm-map [latitude]=\"lat\" [longitude]=\"lng\" [fitBounds]=\"bounds\">\n  <agm-marker *ngFor=\"let m of markers\" [latitude]=\"m.geo.lat\" [longitude]=\"m.geo.lng\"></agm-marker>\n</agm-map>\n"
 
 /***/ }),
 
@@ -618,11 +605,7 @@ module.exports = "\n <sebm-google-map [latitude]=\"lat\" [longitude]=\"lng\" [zo
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__ = __webpack_require__("../../../../../src/app/services/buscador.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_map_service__ = __webpack_require__("../../../../../src/app/services/map.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__agm_core__ = __webpack_require__("../../../../@agm/core/index.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -635,51 +618,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-
 var MapComponent = (function () {
-    function MapComponent(buscadorService, mapService, route, router) {
-        this.buscadorService = buscadorService;
-        this.mapService = mapService;
-        this.route = route;
-        this.router = router;
+    function MapComponent() {
     }
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
-        setTimeout(function () {
-            console.log("esperando");
-            _this.markersCity = _this.buscadorService.getMarkerToMap();
-            console.log(_this.markersCity);
-            _this.lat = _this.markersCity[0].lat;
-            _this.lng = _this.markersCity[0].lng;
-            _this.zoom = 13;
-        }, 3000);
+        console.log(this.markers);
+        this.agmMap.mapReady.subscribe(function (map) {
+            _this.bounds = new google.maps.LatLngBounds();
+            _this.markers.forEach(function (e) {
+                var latlng = new google.maps.LatLng(e.geo.lat, e.geo.lng);
+                _this.bounds.extend(latlng);
+            });
+            map.fitBounds(_this.bounds);
+            console.log("hola");
+            //setTimeout(map.fitBounds(),2000);
+        });
     };
     return MapComponent;
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
-], MapComponent.prototype, "origin", void 0);
+], MapComponent.prototype, "markers", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__agm_core__["b" /* AgmMap */]),
     __metadata("design:type", Object)
-], MapComponent.prototype, "destination", void 0);
+], MapComponent.prototype, "agmMap", void 0);
 MapComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-map',
         template: __webpack_require__("../../../../../src/app/map/map.component.html"),
         styles: [__webpack_require__("../../../../../src/app/map/map.component.css")],
     }),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
-        selector: 'sebm-google-map-directions'
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_buscador_service__["a" /* BuscadorService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_map_service__["a" /* MapService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_map_service__["a" /* MapService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [])
 ], MapComponent);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=map.component.js.map
 
 /***/ }),
@@ -736,7 +710,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/place-details/place-details.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <a class= \"waves-effect waves-light  waves-light indigo-text accent-4 \" (click)=\"backClicked()\"><i class=\"material-icons medium\">keyboard_return</i></a>\n</div>\n<div class=\"row all\">\n  <div class=\"col s12 m6 l6\">\n    <div class=\"row\">\n      <div class=\"col s12 m12\">\n        <div class=\"card\">\n          <div class=\"card-image\">\n            <img src=\"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU\">\n            <a class=\"btn-floating halfway-fab waves-effect waves-light indigo accent-4\" href=\"{{details.website}}\"><i class=\"material-icons\">add</i></a>\n\n          </div>\n          <div class=\"card-content\">\n            <span class=\"card-title indigo-text accent-4\">{{details.name}}</span>\n            <p>{{details.place.description| json}}</p>\n          </div>\n          <div class=\"card-tabs\">\n            <ul class=\"tabs tabs-fixed-width\">\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4 active\" href=\"#test4\">Otros viajeros dicen...</a></li>\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4\" href=\"#test5\">Valoración media</a></li>\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4\" href=\"#test6\">Más..</a></li>\n            </ul>\n          </div>\n          <div class=\"card-content \">\n            <div id=\"test4\">\n              <p><b>{{details.reviews[0].author_name}}</b></p>\n              <p class=\"indigo-text accent-4\">{{details.reviews[0].text}}</p>\n              <p><b>{{details.reviews[1].author_name}}</b></p>\n              <p class=\" indigo-text accent-4\">{{details.reviews[1].text}}</p>\n              <p><b>{{details.reviews[2].author_name}}</b></p>\n              <p class=\"indigo-text accent-4\">{{details.reviews[2].text}}</p>\n            </div>\n            <div id=\"test5\" class=\"indigo-text accent-4\"><h3>{{details.rating}}/5</h3></div>\n            <div id=\"test6\">Acceder a más info: <p> <a href=\"{{details.place.link}}\"> <i class=\"material-icons medium indigo-text accent-4\">fast_forward</i></a></p></div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s12 m6 l6\">\n    <app-map></app-map>\n  </div>\n</div>\n<!-- <p>{{details | json}}</p> -->\n"
+module.exports = "<div>\n  <a class= \"waves-effect waves-light  waves-light indigo-text accent-4 \" (click)=\"backClicked()\"><i class=\"material-icons medium\">keyboard_return</i></a>\n</div>\n<div class=\"row all\">\n  <div class=\"col s12 m6 l6\">\n    <div class=\"row\">\n      <div class=\"col s12 m12\">\n        <div class=\"card\">\n          <div class=\"card-image\">\n            <img src=\"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{details.photos[1].photo_reference}}&key=AIzaSyBtmEjULZwEORN1Ql7J1e_MNxlzloJxycU\">\n            <a class=\"btn-floating halfway-fab waves-effect waves-light indigo accent-4\" href=\"{{details.website}}\"><i class=\"material-icons\">add</i></a>\n\n          </div>\n          <div class=\"card-content\">\n            <span class=\"card-title indigo-text accent-4\">{{details.name}}</span>\n            <p>{{details.place.description| json}}</p>\n          </div>\n          <div class=\"card-tabs\">\n            <ul class=\"tabs tabs-fixed-width\">\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4 active\" href=\"#test4\">Otros viajeros dicen...</a></li>\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4\" href=\"#test5\">Valoración media</a></li>\n              <li class=\"tab\"><a class=\"rallita indigo-text accent-4\" href=\"#test6\">Más..</a></li>\n            </ul>\n          </div>\n          <div class=\"card-content \">\n            <div id=\"test4\">\n              <p><b>{{details.reviews[0].author_name}}</b></p>\n              <p class=\"indigo-text accent-4\">{{details.reviews[0].text}}</p>\n              <p><b>{{details.reviews[1].author_name}}</b></p>\n              <p class=\" indigo-text accent-4\">{{details.reviews[1].text}}</p>\n              <p><b>{{details.reviews[2].author_name}}</b></p>\n              <p class=\"indigo-text accent-4\">{{details.reviews[2].text}}</p>\n            </div>\n            <div id=\"test5\" class=\"indigo-text accent-4\"><h3>{{details.rating}}/5</h3></div>\n            <div id=\"test6\">Acceder a más info: <p> <a href=\"{{details.place.link}}\"> <i class=\"material-icons medium indigo-text accent-4\">fast_forward</i></a></p></div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col s12 m6 l6\" *ngIf=\"geoobject.length > 0\">\n    <app-map [markers]=\"geoobject\"></app-map>\n  </div>\n</div>\n<!-- <p>{{details | json}}</p> -->\n"
 
 /***/ }),
 
@@ -774,11 +748,10 @@ var PlaceDetailsComponent = (function () {
         this._location = _location;
         this.photoID = [];
         this.details = [];
+        this.geoobject = [];
     }
     PlaceDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.arrIDs = this.buscadorService.getPhoto();
-        console.log('el array de los ids', this.arrIDs);
         this.route.params.subscribe(function (params) {
             console.log('esto es params', params);
             _this.buscadorService.getDetails(params.id)
@@ -786,7 +759,8 @@ var PlaceDetailsComponent = (function () {
                 _this.details = d;
                 console.log('get deatails del component', _this.details);
                 console.log('LOCALIZAION', _this.details.geometry.location);
-                _this.buscadorService.getMarkers(_this.details.geometry.location);
+                _this.geoobject = [{ geo: _this.details.geometry.location }];
+                //this.buscadorService.getMarkers(this.details.geometry.location)
             });
         });
     };
@@ -1040,24 +1014,23 @@ var BuscadorService = (function () {
     function BuscadorService(http) {
         this.http = http;
         this.options = { withCredentials: true };
+        this.markers = [];
     }
     BuscadorService.prototype.getPoint = function (city) {
+        var _this = this;
         return this.http.get(BASEURL + "/point-interest/gmaps/?city=" + city, this.options)
-            .map(function (res) { return res.json(); });
-    };
-    BuscadorService.prototype.getMarkers = function (marker) {
-        this.markers = marker;
-        console.log('Estoy en buscador service y recibo estos markers', this.markers);
-    };
-    BuscadorService.prototype.getMarkerToMap = function () {
-        console.log('Estoy en buscador y retorno estos markers', this.markers);
-        return this.markers;
-    };
-    BuscadorService.prototype.setPhoto = function (photosID) {
-        this.photo = photosID;
-    };
-    BuscadorService.prototype.getPhoto = function () {
-        return this.photo;
+            .map(function (res) { return res.json(); })
+            .map(function (cityArray) {
+            cityArray.forEach(function (e) {
+                _this.markers.push({
+                    geo: e.geometry.location,
+                    name: e.name,
+                    photo: e.photos[0].photo_reference,
+                    placeID: e.place_id
+                });
+            });
+            return _this.markers;
+        });
     };
     BuscadorService.prototype.getDetails = function (placeID) {
         console.log('estoy en funcion getDetails', placeID);
