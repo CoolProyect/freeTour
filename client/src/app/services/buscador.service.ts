@@ -15,6 +15,7 @@ export class BuscadorService {
     return this.http.get(`${BASEURL}/point-interest/gmaps/?city=${city}`, this.options)
       .map((res) => res.json())
       .map(cityArray => {
+        this.markers = []
         cityArray.forEach(e => {
           this.markers.push({
             geo:e.geometry.location,
