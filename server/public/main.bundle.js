@@ -596,7 +596,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [latitude]=\"lat\" [longitude]=\"lng\" [fitBounds]=\"bounds\">\n  <agm-marker *ngFor=\"let m of markers\" [latitude]=\"m.geo.lat\" [longitude]=\"m.geo.lng\"></agm-marker>\n</agm-map>\n"
+module.exports = "<agm-map [latitude]=\"lat\" [longitude]=\"lng\" [fitBounds]=\"bounds\" [zoom] = \"zoom\">\n  <agm-marker *ngFor=\"let m of markers\" [latitude]=\"m.geo.lat\" [longitude]=\"m.geo.lng\"></agm-marker>\n</agm-map>\n"
 
 /***/ }),
 
@@ -620,20 +620,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MapComponent = (function () {
     function MapComponent() {
+        this.zoom = 13;
+        this.ready = false;
     }
+    MapComponent.prototype.fitMarkers = function () {
+        var _this = this;
+        this.bounds = new google.maps.LatLngBounds();
+        this.markers.forEach(function (e) {
+            var latlng = new google.maps.LatLng(e.geo.lat, e.geo.lng);
+            _this.bounds.extend(latlng);
+        });
+        this.map.fitBounds(this.bounds);
+        console.log("FITTED BOUNDS");
+    };
     MapComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log(this.markers);
+        console.log("EL ARRAY DE LOS MARKERS", this.markers);
         this.agmMap.mapReady.subscribe(function (map) {
-            _this.bounds = new google.maps.LatLngBounds();
-            _this.markers.forEach(function (e) {
-                var latlng = new google.maps.LatLng(e.geo.lat, e.geo.lng);
-                _this.bounds.extend(latlng);
-            });
-            map.fitBounds(_this.bounds);
-            console.log("hola");
-            //setTimeout(map.fitBounds(),2000);
+            _this.map = map;
+            _this.fitMarkers();
+            _this.ready = true;
         });
+    };
+    MapComponent.prototype.ngOnChanges = function () {
+        if (this.ready) {
+            this.fitMarkers();
+        }
     };
     return MapComponent;
 }());
@@ -1021,6 +1033,7 @@ var BuscadorService = (function () {
         return this.http.get(BASEURL + "/point-interest/gmaps/?city=" + city, this.options)
             .map(function (res) { return res.json(); })
             .map(function (cityArray) {
+            _this.markers = [];
             cityArray.forEach(function (e) {
                 _this.markers.push({
                     geo: e.geometry.location,
